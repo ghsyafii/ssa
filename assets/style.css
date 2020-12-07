@@ -1,0 +1,35 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    /* background-color: #B4FFD6; */
+}
+
+.navbar-brand {
+    margin-top: 6px;
+}
+
+body {
+    padding-top: 80px;
+    margin-left: 20px;
+}
+
+.logo {
+    margin-top: -10px;
+}
+
+a {
+    color:gray;
+}
+
+a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.createAccount {
+    color:#F91111;
+}
+
+
+
+
+
