@@ -1,15 +1,13 @@
 body {
     font-family: 'Roboto', sans-serif;
     /* background-color: #B4FFD6; */
+    margin-right: 20px;
+    margin-left: 20px;
+    padding-top: 80px;
 }
 
 .navbar-brand {
     margin-top: 6px;
-}
-
-body {
-    padding-top: 80px;
-    margin-left: 20px;
 }
 
 .logo {
@@ -27,6 +25,14 @@ a:hover {
 
 .createAccount {
     color:#F91111;
+}
+
+.card {
+    border: none;
+}
+
+body {
+    background-color: white;
 }
 
 
