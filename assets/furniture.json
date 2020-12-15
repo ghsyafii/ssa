@@ -1,0 +1,69 @@
+"Table" : [
+    {"Type": "Dining Table", "Price": "$500"},
+    {"Type": "Bedside Table", "Price": "$600"},
+    {"Type": "Refectory Table", "Price": "$150"},
+    {"Type": "Workbenches", "Price": "$200"}
+]
+
+"Chair" : [
+    {"Type": "Office Chair", "Price": "$200"},
+    {"Type": "Armchair", "Price": "$350"},
+    {"type": "2-seat Sofa", "Price": "$500"},
+    {"Type": "Relaxation Chair", "Price": "$1000"}
+]
+
+"Bed" : [
+    {"Type": "King Bed", "Price": "$1500"},
+    {"Type": "Queen Bed", "Price": "$1200"},
+    {"Type": "Single Bed", "Price": "$400"},
+    {"Type": "Double-Deck Bed", "Price": "$700"}
+]
+
+"Bed-Linen" : [
+    {"Type": "King-Cotton", "Price": "$300"},
+    {"Type": "Queen-Cotton", "Price": "$250"},
+    {"Type": "Single-Cotton", "Price": "$100"},
+    {"type": "Double-Deck-Cotton", "Price": "$200"}
+]
+
+"Carpet" : [
+    {"Type": "Living-Room", "Price": "$200"},
+    {"Type": "Dining-Room", "Price": "$200"},
+    {"Type": "Bed-Room", "Price": "$150"},
+    {"Type": "Kitchen-Rug", "Price": "$100"}
+]
+
+"Kitchen" : [
+    {"Type": "5-Room Type", "Price": "$4500"},
+    {"Type": "4-Room Type", "Price": "$4000"},
+    {"Type": "3-Room Type", "Price": "$3000"},
+    {"Type": "2-Room & Less", "Price": "$2000"}
+]
+
+"Toilet-Furniture" : [
+    {"Type": "Private Home", "Price": "$2000"},
+    {"Type": "Condominium", "Price": "$1500"},
+    {"Type": "HDB Flat", "Price": "$750"},
+    {"Type": "Office", "Price": "$5000"}
+]
+
+"Lighting-Fixtures" : [
+    {"Type": "LED Lamps", "Price": "$20"},
+    {"Type": "Fluorescent", "Price": "$5"},
+    {"Type": "Incandescent Lamp", "Price": "$10"},
+    {"Type": "Halogen Lights", "Price": "$100"}
+]
+
+"Wardrobe" : [
+    {"Type": "Wood-Door", "Price": "$500"},
+    {"Type": "PVC-Door", "Price": "$300"},
+    {"Type": "Glass-Wood-Door", "Price": "$700"},
+    {"Type": "Cloth-Door", "Price": "$200"}
+]
+
+"Shoe Rack" : [
+    {"Type": "Two-Shelf Wood", "Price": "$150"},
+    {"Type": "Two-Shelf-Door", "Price": "$200"},
+    {"Type": "Two-Shelf PVC", "Price": "$100"},
+    {"Type": ""}
+]
