@@ -131,7 +131,7 @@ function validUser() {
 
 //foreach method try later
 
-//furniture cards
+//Define a class called ModelController that contains a data structure to store the items added in furniture.json
 
 class ModelController {
   constructor(name, price) {
@@ -140,6 +140,18 @@ class ModelController {
   }
 }
 
-//furniture cards 
+//Define three functions to interact with the DOM
+
+// addItem(item)
+
+// removeItem(itemId)
+
+// clear()
+
+
+
+
+
+
 
 
