@@ -104,7 +104,7 @@ function addInfo() {
 
 
 //login validation with local storage
-function passUsers (){
+function passUsers() {
   const userLogin = {
     username: userName.value,
     userpass: userPass.value
@@ -119,16 +119,27 @@ function validUser() {
   infoStore = JSON.parse(storedUsers);
   var tempUsers = localStorage.getItem("loginInfo");
   users = JSON.parse(tempUsers);
-    if (infoStore[0].email !== users.username || infoStore[0].password !== users.password)
-{
-  alert("Wrong username or password. Please try again!");
-}
-else if (infoStore.email === users.username && infoStore.password === users.password)
-{ alert("Login successful!");
-}
-  
+  if (infoStore[0].email !== users.username || infoStore[0].password !== users.password) {
+    alert("Wrong username or password. Please try again!");
+  }
+  else if (infoStore.email === users.username && infoStore.password === users.password) {
+    alert("Login successful!");
+  }
+
 
 }
 
 //foreach method try later
+
+//furniture cards
+
+class ModelController {
+  constructor(name, price) {
+    this.name = name;
+    this.price = price;
+  }
+}
+
+//furniture cards 
+
 
