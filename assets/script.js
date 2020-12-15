@@ -31,8 +31,8 @@ var inputPostal = document.getElementById("inputCity");
 var enterInfo = document.getElementById("info-enter");
 var checkBox = document.getElementById("gridCheck");
 var signUpForm = document.getElementById("signupform");
-var userName = document.querySelectorAll(".login-username");
-var userPass = document.querySelectorAll(".login-password");
+var userName = document.getElementById("uname");
+var userPass = document.getElementById("upass");
 var users = [];
 
 
@@ -62,7 +62,10 @@ addToLocalStorage = () => {
   else if (countryCode.value == "" || countryCode.value == " ") {
     alert("Please fill in your last name.")
   }
-  else { addInfo(); }
+  else { 
+    addInfo();
+    passUsers();
+   }
 }
 
 enterInfo.addEventListener('click', (event) => {
@@ -106,29 +109,39 @@ function addInfo() {
 //login validation with local storage
 function passUsers (){
   const userLogin = {
-    username: userName.value,
-    userpass: userPass.value
+    username: inputEmail.value,
+    userpass: inputPassword.value
   }
   users.push(userLogin);
   localStorage.setItem('loginInfo', JSON.stringify(users));
 }
 
 function validUser() {
-  passUsers();
-  var storedUsers = localStorage.getItem('listInfo');
-  infoStore = JSON.parse(storedUsers);
   var tempUsers = localStorage.getItem("loginInfo");
   users = JSON.parse(tempUsers);
-    if (infoStore[0].email !== users.username || infoStore[0].password !== users.password)
-{
-  alert("Wrong username or password. Please try again!");
+  for (var i =0; i < users.length; i++){
+      if (userName.value !== users[i].username)
+      {alert("Wrong username or password. Please try again!");}
+      else if (userPass.value !== users[i].userpass)
+      {alert("Wrong username or password. Please try again!");}
+      else if (userName.value == users[i].username && userPass.value == users[i].userpass)
+      {alert("Login successful!");}
+  }
 }
-else if (infoStore.email === users.username && infoStore.password === users.password)
-{ alert("Login successful!");
-}
-  
+//     if (userName.value !== users.username) 
+// {
+//   alert("Wrong username or password. Please try again!");
+// }
+// else if (userName.value === users.username && userPass.value === users.userpass)
+// { alert("Login successful!");
+// }
 
-}
+
 
 //foreach method try later
-
+// for(var i = 0; i < cubes.length; i++) {
+//   var cube = cubes[i];
+//   for(var j = 0; j < cube.length; j++) {
+//       display("cube[" + i + "][" + j + "] = " + cube[j]);
+//   }
+// }
