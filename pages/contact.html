@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <title>SSA • Contact</title>
+    <script src="../assets/contactform.js"></script>
 </head>
 
 <body>
@@ -73,6 +74,7 @@
 
     <div class="container-fluid">
         <div class="row">
+        <div class="col-12">
             <h1>Get in touch</h1>
             <p> We'd love to hear from you.
                 If you have any contact request, please fill in this form.
@@ -84,35 +86,43 @@
 
 
             </p>
-            <form action="https://formspree.io/f/mjvpazna" method="POST">
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+            <form class= "needs-validation" novalidate id = "form" action="https://formspree.io/f/mjvpazna" method="POST">
                 <div class="form-group">
-                    <label for="inputName">Your name</label>
-                    <input type="text" name="name" class="form-control" id="inputName" placeholder="">
+                    <label for="validationCustom01">Your name</label>
+                    <input type="text" name="name" class="form-control" id="validationCustom01" placeholder="" required>
+                      <div class="invalid-feedback">
+                        Please tell us your name.
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Your email</label>
                     <input type="email" name="_replyto" class="form-control" id="exampleFormControlInput1"
-                        placeholder="">
+                        placeholder="" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid email address.
+                        </div>
                 </div>
                 <!-- <div class="form-group">
                     <label for="inputSubject">Subject</label>
                     <input type="text" class="form-control" id="inputSubject" placeholder="">
                 </div> -->
-
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Your message</label>
-                    <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="5" required></textarea>
+                    <div class="invalid-feedback">
+                        Please enter a message.
+                    </div>
                 </div>
                 <button type="submit" value="Send" class="btn btn-warning">Submit</button>
             </form>
         </div>
+        </div>
+        
     </div>
-
-
-
-
-
-
 
     <!-- Optional JavaScript; choose one of the two! -->
 
