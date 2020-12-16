@@ -107,7 +107,7 @@ function addInfo() {
 
 
 //login validation with local storage
-function passUsers (){
+function passUsers() {
   const userLogin = {
     username: inputEmail.value,
     userpass: inputPassword.value
@@ -128,14 +128,6 @@ function validUser() {
       {alert("Login successful!");}
   }
 }
-//     if (userName.value !== users.username) 
-// {
-//   alert("Wrong username or password. Please try again!");
-// }
-// else if (userName.value === users.username && userPass.value === users.userpass)
-// { alert("Login successful!");
-// }
-
 
 
 //foreach method try later
@@ -145,3 +137,27 @@ function validUser() {
 //       display("cube[" + i + "][" + j + "] = " + cube[j]);
 //   }
 // }
+//Define a class called ModelController that contains a data structure to store the items added in furniture.json
+
+class ModelController {
+  constructor(name, price) {
+    this.name = name;
+    this.price = price;
+  }
+}
+
+//Define three functions to interact with the DOM
+
+// addItem(item)
+
+// removeItem(itemId)
+
+// clear()
+
+
+
+
+
+
+
+
