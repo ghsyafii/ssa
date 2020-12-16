@@ -106,7 +106,7 @@ function addInfo() {
 
 
 //login validation with local storage
-function passUsers (){
+function passUsers() {
   const userLogin = {
     username: inputEmail.value,
     userpass: inputPassword.value
@@ -124,18 +124,31 @@ function myFunction() {
 function validUser() {
   var tempUsers = localStorage.getItem("loginInfo");
   users = JSON.parse(tempUsers);
-  for(var key1 in users) {
-    for (var key2 in users[key1]){
-      var userName = document.getElementById("uname").value;
-    if ( userName == users[key1][key2])
-          {console.log("okay"); break;}
-    
-        else
-          {console.log("not okay"); break;}
-        
-      
-    }
-  
-  }}
 
-//valid user end
+
+//foreach method try later
+
+//Define a class called ModelController that contains a data structure to store the items added in furniture.json
+
+class ModelController {
+  constructor(name, price) {
+    this.name = name;
+    this.price = price;
+  }
+}
+
+//Define three functions to interact with the DOM
+
+// addItem(item)
+
+// removeItem(itemId)
+
+// clear()
+
+
+
+
+
+
+
+
