@@ -31,9 +31,8 @@ var inputPostal = document.getElementById("inputCity");
 var enterInfo = document.getElementById("info-enter");
 var checkBox = document.getElementById("gridCheck");
 var signUpForm = document.getElementById("signupform");
-var userName = document.getElementById("uname");
-var userPass = document.getElementById("upass");
-var users = [];
+var userName = document.getElementById("uname").value;
+var userPass = document.getElementById("upass").value;
 
 
 addToLocalStorage = () => {
@@ -112,36 +111,31 @@ function passUsers (){
     username: inputEmail.value,
     userpass: inputPassword.value
   }
+  var users = JSON.parse(localStorage.getItem('loginInfo')) || [];
   users.push(userLogin);
   localStorage.setItem('loginInfo', JSON.stringify(users));
+}
+
+
+function myFunction() {
+  console.log(ages.some(checkUser))
 }
 
 function validUser() {
   var tempUsers = localStorage.getItem("loginInfo");
   users = JSON.parse(tempUsers);
-  for (var i =0; i < users.length; i++){
-      if (userName.value !== users[i].username)
-      {alert("Wrong username or password. Please try again!");}
-      else if (userPass.value !== users[i].userpass)
-      {alert("Wrong username or password. Please try again!");}
-      else if (userName.value == users[i].username && userPass.value == users[i].userpass)
-      {alert("Login successful!");}
-  }
-}
-//     if (userName.value !== users.username) 
-// {
-//   alert("Wrong username or password. Please try again!");
-// }
-// else if (userName.value === users.username && userPass.value === users.userpass)
-// { alert("Login successful!");
-// }
+  for(var key1 in users) {
+    for (var key2 in users[key1]){
+      var userName = document.getElementById("uname").value;
+    if ( userName == users[key1][key2])
+          {console.log("okay"); break;}
+    
+        else
+          {console.log("not okay"); break;}
+        
+      
+    }
+  
+  }}
 
-
-
-//foreach method try later
-// for(var i = 0; i < cubes.length; i++) {
-//   var cube = cubes[i];
-//   for(var j = 0; j < cube.length; j++) {
-//       display("cube[" + i + "][" + j + "] = " + cube[j]);
-//   }
-// }
+//valid user end
