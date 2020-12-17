@@ -16,7 +16,7 @@
 fetch('furniture.json')
     .then((response) => response.json())
     .then((json) => {
-        console.log(json);
+        // console.log(json);
         const cards = json
         let output = "";
         for (let i = 0; i < json.length; i++) {
