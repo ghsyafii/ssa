@@ -1,3 +1,5 @@
+//Login pop-up
+
 var myModal = document.getElementById("myModal");
 var clickLogin = document.getElementById("loginclick");
 var span = document.getElementsByClassName("closetag")[0];
@@ -13,6 +15,8 @@ span.addEventListener('click', function () {
   if (myModal.style.display == "block")
     myModal.style.display = "none";
 })
+
+  //close window when click outside of form
 
 window.addEventListener('click', function (event) {
   if (event.target == myModal) { myModal.style.display = "none"; }
