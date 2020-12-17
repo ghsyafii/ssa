@@ -33,7 +33,7 @@ var checkBox = document.getElementById("gridCheck");
 var signUpForm = document.getElementById("signupform");
 var userName = document.getElementById("uname");
 var userPass = document.getElementById("upass");
-var users = [];
+
 
 
 addToLocalStorage = () => {
@@ -112,6 +112,7 @@ function passUsers() {
     username: inputEmail.value,
     userpass: inputPassword.value
   }
+  var users = JSON.parse(localStorage.getItem('loginInfo'))|| [];
   users.push(userLogin);
   localStorage.setItem('loginInfo', JSON.stringify(users));
 }
@@ -119,6 +120,7 @@ function passUsers() {
 function validUser() {
   var tempUsers = localStorage.getItem("loginInfo");
   users = JSON.parse(tempUsers);
+
   for (var i =0; i < users.length; i++){
       if (userName.value !== users[i].username)
       {alert("Wrong username or password. Please try again!");}
