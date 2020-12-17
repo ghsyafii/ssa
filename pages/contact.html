@@ -72,39 +72,48 @@
 
     <div class="container-fluid">
         <div class="row">
+        <div class="col-12">
             <h1>Get in touch</h1>
             <p> We'd love to hear from you.
-                If you have any contact request, please fill in this form.
-
-
-
-                Our dedicated customer care team is happy to help you with any questions regarding your online
+                If you have any contact request, please fill in this form. Our dedicated customer care team is happy to help you with any questions regarding your online
                 shopping, including assistance and order support.
-
-
             </p>
-            <form action="https://formspree.io/f/mjvpazna" method="POST">
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+            <form class= "needs-validation" novalidate id = "form" action="https://formspree.io/f/mjvpazna" method="POST">
                 <div class="form-group">
-                    <label for="inputName">Your name</label>
-                    <input type="text" name="name" class="form-control" id="inputName" placeholder="">
+                    <label for="validationCustom01">Your name</label>
+                    <input type="text" name="name" class="form-control" id="validationCustom01" placeholder="" required>
+                      <div class="invalid-feedback">
+                        Please tell us your name.
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Your email</label>
                     <input type="email" name="_replyto" class="form-control" id="exampleFormControlInput1"
-                        placeholder="">
+                        placeholder="" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid email address.
+                        </div>
                 </div>
                 <!-- <div class="form-group">
                     <label for="inputSubject">Subject</label>
                     <input type="text" class="form-control" id="inputSubject" placeholder="">
                 </div> -->
-
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Your message</label>
-                    <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="5" required></textarea>
+                    <div class="invalid-feedback">
+                        Please enter a message.
+                    </div>
                 </div>
                 <button type="submit" value="Send" class="btn btn-warning">Submit</button>
             </form>
         </div>
+        </div>
+        
     </div>
 <!-- Modal content -->
 <div id ="myModal" class = "my-modal">
@@ -125,23 +134,16 @@
     </div>
     <!--modal end-->
 
-   <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
         <script src="../assets/script.js"></script>
 
 
-    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-    -->
 </body>
 
 </html>

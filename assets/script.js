@@ -131,7 +131,6 @@ function validUser() {
   }
 }
 
-
 //foreach method try later
 // for(var i = 0; i < cubes.length; i++) {
 //   var cube = cubes[i];

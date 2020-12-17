@@ -69,19 +69,16 @@
         </nav>
     </div>
 
-    <!-- Test show json -->
+<!-- FURNITURE -->
 
-    <p>Test</p>
-
-    <script>
-        fetch('furniture.json')
-            .then((response) => response.json())
-            .then((json) => {
-                console.log(json)
-            })
-    </script>
-
-    <!-- Furniture cards -->
+<div class="container-fluid">
+    <div class="row">
+        <h1>Furniture</h1>
+    </div>
+    <div class="row">
+        <div id= "cards"></div>
+    </div>
+</div>
 
     <!-- <div class="container-fluid">
         <h1>Furniture</h1>
@@ -142,7 +139,6 @@
         </div>
     </div> -->
 
-
      <!-- Modal content -->
      <div id ="myModal" class = "my-modal">
         <div class="my-modal-content">
@@ -161,80 +157,6 @@
         
         </div>
         <!--modal end-->
-=======
-
-
-
-
-    <!-- Test Furniture JSON -->
-
-    <!-- <script type="text/javascript">
-        let testFurniture = `[
-                {
-                    "ID": "001",
-                    "name": "Black Chair",
-                    "price": "$180",
-                    "image": "../images/furniture/blackchair.jpg"
-                },
-                {
-                    "ID": "002",
-                    "name": "A Mirror",
-                    "price": "$140",
-                    "image": "../images/furniture/mirror.jpg"
-                },
-                {
-                    "ID": "003",
-                    "name": "A Ceramic Lamp",
-                    "price": "$200",
-                    "image": "../images/furniture/ceramiclamp.jpg"
-                },
-                {
-                    "ID": "004",
-                    "name": "A Candle Holder",
-                    "price": "$100",
-                    "image": "../images/furniture/candleholder.jpg"
-                },
-                {
-                    "ID": "005",
-                    "name": "Blue Chair",
-                    "price": "$120",
-                    "image": "../images/furniture/bluechair.jpg"
-                },
-                {
-                    "ID": "006",
-                    "name": "Orange Chair",
-                    "price": "$140",
-                    "image": "../images/furniture/orangechair.jpg"
-                },
-                {
-                    "ID": "007",
-                    "name": "A Steel Lamp",
-                    "price": "$340",
-                    "image": "../images/furniture/steellamp.jpg"
-                },
-                {
-                    "ID": "008",
-                    "name": "Another Candle Holder",
-                    "price": "$220",
-                    "image": "../images/furniture/anothercandleholder.jpg"
-                },
-                {
-                    "ID": "009",
-                    "name": "Table Linen",
-                    "price": "$160",
-                    "image": "../images/furniture/tablelinen.jpg"
-                },
-                {
-                    "ID": "010",
-                    "name": "Pouf",
-                    "price": "$380",
-                    "image": "../images/furniture/pouf.jpg"
-                }
-            ]`
-
-        console.log(JSON.parse(testFurniture))
-    </script> -->
-
 
     <!-- General scripts -->
     <script type="text/javascript" src="../assets/furniture.js"></script>
