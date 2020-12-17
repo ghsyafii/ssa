@@ -33,7 +33,7 @@ var checkBox = document.getElementById("gridCheck");
 var signUpForm = document.getElementById("signupform");
 var userName = document.getElementById("uname");
 var userPass = document.getElementById("upass");
-var users = [];
+
 
 
 addToLocalStorage = () => {
@@ -112,6 +112,7 @@ function passUsers() {
     username: inputEmail.value,
     userpass: inputPassword.value
   }
+  var users = JSON.parse(localStorage.getItem('loginInfo'))|| [];
   users.push(userLogin);
   localStorage.setItem('loginInfo', JSON.stringify(users));
 }
@@ -119,6 +120,7 @@ function passUsers() {
 function validUser() {
   var tempUsers = localStorage.getItem("loginInfo");
   users = JSON.parse(tempUsers);
+
   for (var i =0; i < users.length; i++){
       if (userName.value !== users[i].username)
       {alert("Wrong username or password. Please try again!");}
@@ -130,43 +132,6 @@ function validUser() {
 }
 
 
-
-//error messages for contact
-
-// const name = document.getElementById('name')
-// const email = document.getElementById('email')
-// const message = document.getElementById('message')
-// const form = document.getElementById('form')
-
-// form.addEventListener('submit', (e) => {
-//   e.preventDefault()
-// })
-
-//foreach method try later
-
-//foreach method try later
-// for(var i = 0; i < cubes.length; i++) {
-//   var cube = cubes[i];
-//   for(var j = 0; j < cube.length; j++) {
-//       display("cube[" + i + "][" + j + "] = " + cube[j]);
-//   }
-// }
-//Define a class called ModelController that contains a data structure to store the items added in furniture.json
-
-class ModelController {
-  constructor(name, price) {
-    this.name = name;
-    this.price = price;
-  }
-}
-
-//Define three functions to interact with the DOM
-
-// addItem(item)
-
-// removeItem(itemId)
-
-// clear()
 
 
 
