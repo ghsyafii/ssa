@@ -1,7 +1,7 @@
 //Fetch JSON to HTML page
 //Insert JSON items to paragraph with #cards id
 
-fetch('furniture.json')
+fetch('../assets/furniture.json')
     .then((response) => response.json())
     .then((json) => {
         // console.log(json);
@@ -12,12 +12,11 @@ fetch('furniture.json')
 
     `<div class="card p-1">
         <img class="card-img-top animate__animated animate__fadeIn" src="${json[i].image}" alt="">
-    
         <div class="card-body">
             <h5 class="card-title">${json[i].name}</h5>
             <p class="card-text">${json[i].price}</p>
         </div>
     </div>`
-            document.getElementById("cards").innerHTML = output;
+        document.getElementById("cards").innerHTML = output;
         }
     })
