@@ -135,7 +135,7 @@ function validUser() {
       if (users[i].username === userName && users[i].userpass === userPass) {
         checkValid = true;
         alert("Login successful!");
-        window.location.href = "pages/contact.html";
+        window.location.href = "http://127.0.0.1:5500/pages/contact.html";
       }
     }
 
