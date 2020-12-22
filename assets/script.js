@@ -16,7 +16,7 @@ span.addEventListener('click', function () {
     myModal.style.display = "none";
 })
 
-  //close window when click outside of form
+//close window when click outside of form
 
 window.addEventListener('click', function (event) {
   if (event.target == myModal) { myModal.style.display = "none"; }
@@ -35,8 +35,6 @@ var inputPostal = document.getElementById("inputCity");
 var enterInfo = document.getElementById("info-enter");
 var checkBox = document.getElementById("gridCheck");
 var signUpForm = document.getElementById("signupform");
-var userName = document.getElementById("uname");
-var userPass = document.getElementById("upass");
 
 
 
@@ -66,10 +64,10 @@ addToLocalStorage = () => {
   else if (countryCode.value == "" || countryCode.value == " ") {
     alert("Please fill in your last name.")
   }
-  else { 
+  else {
     addInfo();
     passUsers();
-   }
+  }
 }
 
 enterInfo.addEventListener('click', (event) => {
@@ -116,7 +114,7 @@ function passUsers() {
     username: inputEmail.value,
     userpass: inputPassword.value
   }
-  var users = JSON.parse(localStorage.getItem('loginInfo'))|| [];
+  var users = JSON.parse(localStorage.getItem('loginInfo')) || [];
   users.push(userLogin);
   localStorage.setItem('loginInfo', JSON.stringify(users));
 }
@@ -124,16 +122,30 @@ function passUsers() {
 function validUser() {
   var tempUsers = localStorage.getItem("loginInfo");
   users = JSON.parse(tempUsers);
+  var userName = document.getElementById("uname").value;
+  var userPass = document.getElementById("upass").value;
+  let checkValid = false;
 
-  for (var i =0; i < users.length; i++){
-      if (userName.value !== users[i].username)
-      {alert("Wrong username or password. Please try again!");}
-      else if (userPass.value !== users[i].userpass)
-      {alert("Wrong username or password. Please try again!");}
-      else if (userName.value == users[i].username && userPass.value == users[i].userpass)
-      {alert("Login successful!");}
+  if (userName == "" || userPass == "") {
+    alert("Kindly input your username or password.");
+  }
+  else {
+
+    for (var i = 0; i < users.length; i++) {
+      if (users[i].username === userName && users[i].userpass === userPass) {
+        checkValid = true;
+        alert("Login successful!");
+        window.location.href = "http://127.0.0.1:5500/pages/contact.html";
+      }
+    }
+
+    if (checkValid != true) {
+      alert("Wrong username or password. Please try again!");
+    }
+
   }
 }
+
 
 
 
