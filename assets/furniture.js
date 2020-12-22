@@ -98,6 +98,7 @@ function addProductPage(){
 addProductPage();
 displayItems();
 
+//for printing cart items to cart page
 function displayItems(){
     let cartItems = localStorage.getItem('itemsInCart');
     cartItems = JSON.parse(cartItems);
@@ -133,6 +134,7 @@ if(cartItems && itemContainer){
         
    }
 
+   //to clear page and local storage
 function ClearStorage(){
     var itemContainer = document.getElementById("items-container");
     var totalPricePage = document.querySelector('.totalPrice');
