@@ -17,10 +17,10 @@ function addProductPage(){
             output +=
 
     `<div class="card p-1">
-        <img class="card-img-top animate__animated animate__fadeIn" src="${productInStore[i].image}" alt="">
+        <img class="card-img-top animate__animated animate__fadeIn" src="${json[i].image}" alt="">
         <div class="card-body">
-            <h5 class="card-title">${productInStore[i].name}</h5>
-            <p class="card-text">$${productInStore[i].price}</p>
+            <h5 class="card-title">${json[i].name}</h5>
+            <p class="card-text">$${json[i].price}</p>
             <button id="addToCart" type="button" class="btn btn-warning">Add to cart</button>
         </div>
     </div>`
@@ -95,10 +95,6 @@ function addProductPage(){
     
 }
 
-
-    
-
-
 addProductPage();
 displayItems();
 
@@ -109,8 +105,8 @@ function displayItems(){
     let totalPrice = localStorage.getItem('totalCost');
     totalPrice = JSON.parse(totalPrice);
     var itemContainer = document.getElementById("items-container");
-    var itemDisplay = document.querySelector('.item-image');
-    var itemName = document.querySelector('.item-name');
+    // var itemDisplay = document.querySelector('.item-image');
+    // var itemName = document.querySelector('.item-name');
 if(cartItems && itemContainer){
        for (let i = 0; i < cartItems.length; i++) {
         itemContainer.innerHTML += 
