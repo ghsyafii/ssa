@@ -110,14 +110,21 @@ function displayItems(){
 if(cartItems && itemContainer){
        for (let i = 0; i < cartItems.length; i++) {
         itemContainer.innerHTML += 
-        `<div class="card">
-        <img class="card-img-top animate__animated animate__fadeIn" src="${cartItems[i].image}" alt="">
-        <div class="card-body">
-            <h5 class="card-title">${cartItems[i].name}</h5>
-            <p class="card-text">$${cartItems[i].price}</p>
-            <p class="card-text">Quantity: ${cartItems[i].inCart}</p>
+        `<div class="card card-cart">
+        <div class ="card-horizontal">
+        <div class="resize-cart-image">
+        <img class="img-fluid" src="${cartItems[i].image}" alt="Card image cap">
         </div>
-    </div>`
+        <div class ="card-body">
+            <h4 class="card-title">${cartItems[i].name}</h4>
+             <p class="card-text">$${cartItems[i].price}</p>
+        </div>
+        </div>
+        <div class="card-footer">
+        <small class="text-muted">Quantity: ${cartItems[i].inCart} </small><br>
+        <small class="text-muted">Total Amount: ${cartItems[i].inCart * cartItems[i].price} </small>
+    </div>
+        </div>`
        }
     var totalPricePage = document.querySelector('.totalPrice');
        totalPricePage.innerHTML +=  
@@ -125,4 +132,23 @@ if(cartItems && itemContainer){
     }
         
    }
+
+function ClearStorage(){
+    var itemContainer = document.getElementById("items-container");
+    var totalPricePage = document.querySelector('.totalPrice');
+    totalPricePage.innerHTML =  "Total Price: "
+    itemContainer.innerHTML = "";
+    localStorage.removeItem("itemsInCart");
+    localStorage.removeItem("cartNumbers");
+    localStorage.removeItem("totalCost");
+}
    
+
+{/* <div class="card">
+        <img class="card-img-top animate__animated animate__fadeIn" src="${cartItems[i].image}" alt="">
+        <div class="card-body">
+            <h5 class="card-title">${cartItems[i].name}</h5>
+            <p class="card-text">$${cartItems[i].price}</p>
+            <p class="card-text">Quantity: ${cartItems[i].inCart}</p>
+        </div>
+</div> */}
