@@ -68,5 +68,19 @@
         "price": 380,
         "image": "../images/furniture/pouf.jpg",
         "inCart": 0
+    },
+    {
+        "ID": "011",
+        "name": "Pouf",
+        "price": 380,
+        "image": "../images/furniture/pouf.jpg",
+        "inCart": 0
+    },
+    {
+        "ID": "012",
+        "name": "Pouf",
+        "price": 380,
+        "image": "../images/furniture/pouf.jpg",
+        "inCart": 0
     }
 ]

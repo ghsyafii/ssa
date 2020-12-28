@@ -13,17 +13,17 @@ function addProductPage(){
         var itemsInLocal= localStorage.setItem('products', products);
         var itemsInStore = localStorage.getItem('products');
         var productInStore = JSON.parse(itemsInStore); //resonate products
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < json.length; i++) {
             output +=
 
-    `<div class="card p-1">
+    `<div class="col-sm-3"><div class="card p-1">
         <img class="card-img-top animate__animated animate__fadeIn" src="${json[i].image}" alt="">
         <div class="card-body">
             <h5 class="card-title">${json[i].name}</h5>
             <p class="card-text">$${json[i].price}</p>
             <button id="addToCart" type="button" class="btn btn-warning">Add to cart</button>
         </div>
-    </div>`
+    </div></div>`
         document.getElementById("cards").innerHTML = output;
         
      
