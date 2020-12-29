@@ -12,7 +12,7 @@ function addProductPage(){
         var itemsInLocal= localStorage.setItem('products', products);
         var itemsInStore = localStorage.getItem('products');
         var productInStore = JSON.parse(itemsInStore); //resonate products
-        for (let i = 0; i < json.length; i++) {
+        for (let i = 0; i < 4; i++) {
             output +=
 
     `<div class="col-sm-3"><div class="card p-1">
