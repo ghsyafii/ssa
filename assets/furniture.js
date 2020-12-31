@@ -131,16 +131,65 @@ if(cartItems && itemContainer){
    }
 
    //to clear page and local storage
+   //to confirm whether to clear
 function ClearStorage(){
     var itemContainer = document.getElementById("items-container");
     var totalPricePage = document.querySelector('.totalPrice');
+    var confirmClear = document.getElementById("confirmclear");
+    if (totalPricePage.innerHTML != ""){
+    confirmClear.innerHTML =
+    `<div class="my-modal-content">
+        <span class="closetag">X</span>
+        <h5>Clearing the cart will remove <strong>ALL</strong> items. Proceed?</h5>
+  <div class = "buttons-align">
+  <label for = "confirm"><button id="confirmed">Yes</button></label>
+  <label for = "not-confirmed"><button id="not-confirmed">No</button></label>
+      </div>
+    
+    </div>`
+    var confirmedClear = document.getElementById('confirmed');
+    var notConfirmed = document.getElementById('not-confirmed');
+
+confirmedClear.addEventListener('click', ()=> {
+    var itemContainer = document.getElementById("items-container");
+    var totalPricePage = document.querySelector('.totalPrice');
+    var confirmClear = document.getElementById("confirmclear");
+    confirmClear.innerHTML = "";
     totalPricePage.innerHTML = "";
     itemContainer.innerHTML = "";
     localStorage.removeItem("itemsInCart");
     localStorage.removeItem("cartNumbers");
     localStorage.removeItem("totalCost");
+})
+
+notConfirmed.addEventListener('click', ()=> {
+    var confirmClear = document.getElementById("confirmclear");
+    confirmClear.innerHTML = "";
+})
 }
-   
+
+    else {
+        confirmClear.innerHTML = 
+        `<div class="my-modal-content">
+        <span class="closetag">X</span>
+        <h5>Cart is empty.</h5>
+        <label for = "not-confirmed"><button id="not-confirmed">Close</button></label>
+      </div>
+    
+    </div>`
+    var notConfirmed = document.getElementById('not-confirmed');
+
+    notConfirmed.addEventListener('click', ()=> {
+        confirmClear.innerHTML = "";
+    })
+
+    }
+    
+
+}
+
+
+
 
 {/* <div class="card">
         <img class="card-img-top animate__animated animate__fadeIn" src="${cartItems[i].image}" alt="">

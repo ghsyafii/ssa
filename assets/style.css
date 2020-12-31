@@ -59,6 +59,8 @@ body {
     border: 1px solid #888;
     width: 50%;
     align-items: center;
+  
+   
 }
 
 @media only screen and (min-width: 1200px) {
@@ -97,3 +99,11 @@ body {
     max-width: 100%;
 }
 
+#confirmclear{
+    position: fixed;
+    width: 50%;
+    height: 50%;
+    top: 0;
+    left: 20%;
+    
+}
