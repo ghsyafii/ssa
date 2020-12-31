@@ -125,8 +125,7 @@ if(cartItems && itemContainer){
         </div>`
        }
     var totalPricePage = document.querySelector('.totalPrice');
-       totalPricePage.innerHTML +=  
-       `<p class="card-text">Total Price: $${totalPrice}</p>`
+       totalPricePage.innerHTML +=  `$${totalPrice}`;
     }
         
    }
@@ -135,7 +134,7 @@ if(cartItems && itemContainer){
 function ClearStorage(){
     var itemContainer = document.getElementById("items-container");
     var totalPricePage = document.querySelector('.totalPrice');
-    totalPricePage.innerHTML =  "Total Price: "
+    totalPricePage.innerHTML = "";
     itemContainer.innerHTML = "";
     localStorage.removeItem("itemsInCart");
     localStorage.removeItem("cartNumbers");
