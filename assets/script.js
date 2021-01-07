@@ -35,38 +35,51 @@ var inputPostal = document.getElementById("inputCity");
 var enterInfo = document.getElementById("info-enter");
 var checkBox = document.getElementById("gridCheck");
 var signUpForm = document.getElementById("signupform");
+var confirmPassword = document.getElementById("confirmpassword");
 
 
 
-addToLocalStorage = () => {
+addToLocalStorage = (event) => {
   if (inputEmail.value == "" || inputEmail.value == " ") {
     alert("Please fill in your email.")
+    event.preventDefault();
   }
   else if (inputFirstName.value == "" || inputFirstName.value == " ") {
     alert("Please fill in your first name.")
-
+    event.preventDefault();
   }
   else if (inputLastName.value == "" || inputLastName.value == " ") {
     alert("Please fill in your last name.")
+    event.preventDefault();
   }
   else if (inputPassword.value == "" || inputPassword.value == " ") {
     alert("Please fill in your last name.")
+    event.preventDefault();
+  }
+  else if (confirmPassword.value == "" || confirmPassword.value == " ") {
+    alert("Reconfirm your password.")
+    event.preventDefault();
   }
   else if (inputAddress.value == "" || inputAddress.value == " ") {
     alert("Please fill in your last name.")
   }
   else if (inputPhone.value == "" || inputPhone.value == " ") {
     alert("Please fill in your last name.")
+    event.preventDefault();
   }
   else if (inputPostal.value == "" || inputPostal.value == " ") {
     alert("Please fill in your last name.")
+    event.preventDefault();
   }
   else if (countryCode.value == "" || countryCode.value == " ") {
     alert("Please fill in your last name.")
+    event.preventDefault();
   }
   else {
+    reconfirmPass();
     addInfo();
     passUsers();
+    
   }
 }
 
@@ -147,7 +160,14 @@ function validUser() {
 }
 
 
-
+reconfirmPass= () =>{
+  if (inputPassword.value != /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/){
+    alert("Kindly recheck Password.");
+  }
+  else if (confirmPassword.value !== inputPassword.value){
+    alert("Different Password. Please recheck.");
+  }
+}
 
 
 
