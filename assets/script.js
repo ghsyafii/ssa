@@ -53,32 +53,33 @@ addToLocalStorage = (event) => {
     event.preventDefault();
   }
   else if (inputPassword.value == "" || inputPassword.value == " ") {
-    alert("Please fill in your last name.")
+    alert("Please fill in your password.")
     event.preventDefault();
   }
-  else if (confirmPassword.value == "" || confirmPassword.value == " ") {
+  else if (confirmPassword.value == "" || confirmPassword.value == " " || confirmPassword.value != inputPassword.value) {
     alert("Reconfirm your password.")
     event.preventDefault();
   }
   else if (inputAddress.value == "" || inputAddress.value == " ") {
-    alert("Please fill in your last name.")
+    alert("Please fill in your address.")
   }
   else if (inputPhone.value == "" || inputPhone.value == " ") {
-    alert("Please fill in your last name.")
+    alert("Please fill in your contact number.")
     event.preventDefault();
   }
   else if (inputPostal.value == "" || inputPostal.value == " ") {
-    alert("Please fill in your last name.")
+    alert("Please fill in your postal code.")
     event.preventDefault();
   }
   else if (countryCode.value == "" || countryCode.value == " ") {
-    alert("Please fill in your last name.")
+    alert("Please indicate your country code.")
     event.preventDefault();
   }
   else {
     reconfirmPass();
     addInfo();
     passUsers();
+    window.location.href = "contact.html";
     
   }
 }
@@ -86,10 +87,9 @@ addToLocalStorage = (event) => {
 enterInfo.addEventListener('click', (event) => {
   event.preventDefault();
   if (checkBox.checked == false) {
-    alert("Kindly check the terms and condition.")
+    alert("Kindly check the terms and condition.");
   }
   else {
-
     addToLocalStorage();
     signUpForm.reset();
   }
@@ -132,7 +132,7 @@ function passUsers() {
   localStorage.setItem('loginInfo', JSON.stringify(users));
 }
 
-function validUser() {
+function validUser(event) {
   var tempUsers = localStorage.getItem("loginInfo");
   users = JSON.parse(tempUsers);
   var userName = document.getElementById("uname").value;
@@ -141,6 +141,7 @@ function validUser() {
 
   if (userName == "" || userPass == "") {
     alert("Kindly input your username or password.");
+    event.preventDefault();
   }
   else {
 
@@ -148,7 +149,7 @@ function validUser() {
       if (users[i].username === userName && users[i].userpass === userPass) {
         checkValid = true;
         alert("Login successful!");
-        window.location.href = "http://127.0.0.1:5500/pages/contact.html";
+        window.location.href = "contact.html";
       }
     }
 
@@ -160,16 +161,31 @@ function validUser() {
 }
 
 
-reconfirmPass= () =>{
-  if (inputPassword.value != /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/){
-    alert("Kindly recheck Password.");
+reconfirmPass= (event) =>{
+  var checkPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+  if (inputPassword.value.match(checkPass)){
+    console.log("okay Password.");
   }
-  else if (confirmPassword.value !== inputPassword.value){
-    alert("Different Password. Please recheck.");
+  else{
+    alert("Please recheck.");
+    event.preventDefault();
   }
 }
 
-
+// passRequire = () => {
+//   console.log("hello");
+//   document.querySelector(".passReq").innerHTML +=
+//   `<div class="my-modal-content">
+//         <span class="closetag">X</span>
+//         <h5>Cart is empty.</h5>
+//         <label for = "not-confirmed"><button id="not-confirmed">Close</button></label>
+//       </div>
+    
+//     </div>`
+//     setTimeout(function() {
+//       document.querySelector(".passReq").innerHTML = "";
+//     }, 1500);
+// }
 
 
 

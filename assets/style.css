@@ -111,3 +111,11 @@ body {
     left: 20%;
     
 }
+
+#testPass:hover > .passReq {
+    display: block;
+    position: relative;
+}
+.passReq {
+    display:none;
+}
