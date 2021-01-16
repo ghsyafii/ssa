@@ -89,13 +89,22 @@
                 </div>
               </div>
                 <div class="form-row">
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-12">
                     <label for="inputEmail4">Email</label>
                     <input type="email" class="form-control" id="inputEmail4" autocomplete="off">
                   </div>
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-12" id = "testPass">
                     <label for="inputPassword4">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4"  autocomplete="off">
+                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password" autocomplete="off" onmouseover="passRequire();">
+                    <div class = "passReq"><p>Password Requirement:</p><li>Min. of 8 character</li>
+                      <li>1 special letter.</li>
+                      <li>1 upperCase & 1 lowerCase alphabet</li>
+                      <li>1 number</li>
+                      </div>
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label for="confirmpassword">Retype Password</label>
+                    <input type="password" class="form-control" id="confirmpassword" placeholder="Password" autocomplete="off">
                   </div>
                 </div>
                 <div class="form-group">
@@ -142,14 +151,14 @@
       <div class="my-modal-content">
           <span class="closetag">X</span>
           <label for="username"><b>Email</b><br>
-            <input type ="text" class ="login-username" name = "username" id="uname" placeholder= "Enter email...">
+            <input type ="text" class ="login-username" name = "username" id="uname" placeholder="Enter email...">
         </label><br>
         <label for="password"><b>Password</b><br>
-        <input type = "password" class = "login-password" id = "upass" name = "password" placeholder = "Enter password...">
+        <input type = "password" class = "login-password" id = "upass" name = "password" placeholder="Enter password...">
     </label><br>
     <div class = "buttons-align">
     <label for = "submit"><button onclick = "validUser()">Login</button></label>
-    <label for = "reset"><button type = "reset">Clear</button></label>
+    <label for = "resetlogin"><button onclick = "resetLogin()">Clear</button></label>
 
              <p><a href = "../pages/login.html">New? Register now!</a></p>
         </div>
