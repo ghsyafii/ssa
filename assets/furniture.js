@@ -139,7 +139,6 @@ function ClearStorage(){
     if (totalPricePage.innerHTML != ""){
     confirmClear.innerHTML =
     `<div class="my-modal-content">
-        <span class="closetag">X</span>
         <h5>Clearing the cart will remove <strong>ALL</strong> items. Proceed?</h5>
   <div class = "buttons-align">
   <label for = "confirm"><button id="confirmed">Yes</button></label>
@@ -171,7 +170,6 @@ notConfirmed.addEventListener('click', ()=> {
     else {
         confirmClear.innerHTML = 
         `<div class="my-modal-content">
-        <span class="closetag">X</span>
         <h5>Cart is empty.</h5>
         <label for = "not-confirmed"><button id="not-confirmed">Close</button></label>
       </div>
