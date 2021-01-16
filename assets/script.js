@@ -3,6 +3,8 @@
 var myModal = document.getElementById("myModal");
 var clickLogin = document.getElementById("loginclick");
 var span = document.getElementsByClassName("closetag")[0];
+var userName = document.getElementById("uname");
+var userPass = document.getElementById("upass");
 
 clickLogin.addEventListener('click', function () {
   if (myModal.style.display == "none" || myModal.style.display == '') {
@@ -155,6 +157,8 @@ function validUser(event) {
 
     if (checkValid != true) {
       alert("Wrong username or password. Please try again!");
+      // userName = '';
+      // userPass = '';
     }
 
   }
@@ -167,9 +171,25 @@ reconfirmPass= (event) =>{
     console.log("okay Password.");
   }
   else{
-    alert("Please recheck.");
+    alert("Kindly refer to the password requirement.");
     event.preventDefault();
   }
+}
+
+// var resetLogin = document.querySelectorAll(".resetlogin");
+// resetLogin.addEventListener('click', () =>{
+//   var userName = document.getElementById("uname").value;
+// var userPass = document.getElementById("upass").value;
+//   userName =" ";
+//   userPass =" ";
+// })
+
+function resetLogin(){
+  var userName = document.getElementById("uname");
+  var userPass = document.getElementById("upass");
+ 
+  userName.value ="";
+  userPass.value ="";
 }
 
 // passRequire = () => {
