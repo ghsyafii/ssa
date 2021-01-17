@@ -147,23 +147,22 @@
         </div>
 
     </div>
-     <!-- Modal content -->
+    <!-- Modal content -->
     <div id ="myModal" class = "my-modal">
         <div class="my-modal-content">
-            <span class="closetag">X</span>
+            <span class="closetag">x</span>
             <label for="username"><b>Email</b><br>
-              <input type ="text" class ="login-username" name = "username" id="uname" placeholder="Enter email...">
-          </label><br>
-          <label for="password"><b>Password</b><br>
-          <input type = "password" class = "login-password" id = "upass" name = "password" placeholder="Enter password...">
-      </label><br>
-      <div class = "buttons-align">
-      <label for = "submit"><button onclick = "validUser()">Login</button></label>
-      <label for = "resetlogin"><button onclick = "resetLogin()">Clear</button></label>
-  
-               <p><a href = "../pages/login.html">New? Register now!</a></p>
-          </div>
-        
+                <input type ="text" class ="login-username" name = "username" id="uname">
+            </label><br>
+            <label for="password"><b>Password</b><br>
+                <input type = "password" class = "login-password" id = "upass" name = "password">
+            </label><br>
+            <div class = "buttons-align">
+                <label for = "submit"><button class = "btn btn-warning" onclick = "validUser()">Login</button></label>
+                <label for = "resetlogin"><button class = "btn btn-warning"  onclick = "resetLogin()">Clear</button></label>
+                <br>
+                <p><a style="text-decoration: underline" href = "../pages/login.html">New? Register now!</a></p>
+            </div>
         </div>
         <!--modal end-->
 

@@ -76,7 +76,7 @@
 
             <div class="col-lg-5 col-sm-12 mb-4">
 
-                <h1 class="">SSA Furniture + Objects</h1>
+                <h1>SSA Furniture + Objects</h1>
                 <p>Lorem Ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.
                     Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem
                     ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.
@@ -86,8 +86,6 @@
 
                 <a href="pages/furniture.html" class="btn btn-warning">
                     Shop now</a>
-
-
             </div>
 
             <div class="col-lg-7 col-sm-12 mb-sm-4">
@@ -98,15 +96,15 @@
 
         <!-- Featured Furniture Cards (to show only 4) -->
 
-        <div class="container-fluid">
-            <div class="row">
-                <h1>Featured</h1>
-            </div>
-            <div class="row">
-                <div id="cards" class="card-group testcarts">
-                </div>
-            </div>
-        </div>
+<!--        <div class="container-fluid">-->
+<!--            <div class="row">-->
+<!--                <h1>Featured</h1>-->
+<!--            </div>-->
+<!--            <div class="row">-->
+<!--                <div id="cards" class="card-group testcarts">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
 
         <div class="row mb-4">
 
@@ -163,8 +161,6 @@
                 <img src="images/LRNCE_15.jpg" class="mainimage img-fluid animate__animated animate__fadeIn">
             </div>
         </div>
-
-
     </div>
 
     <!-- Furniture Scripts -->
@@ -175,20 +171,19 @@
     <!-- Modal content -->
     <div id ="myModal" class = "my-modal">
         <div class="my-modal-content">
-            <span class="closetag">X</span>
+            <span class="closetag">x</span>
             <label for="username"><b>Email</b><br>
-              <input type ="text" class ="login-username" name = "username" id="uname" placeholder="Enter email...">
+              <input type ="text" class ="login-username" name = "username" id="uname">
           </label><br>
           <label for="password"><b>Password</b><br>
-          <input type = "password" class = "login-password" id = "upass" name = "password" placeholder="Enter password...">
+          <input type = "password" class = "login-password" id = "upass" name = "password">
       </label><br>
       <div class = "buttons-align">
-      <label for = "submit"><button onclick = "validUser()">Login</button></label>
-      <label for = "resetlogin"><button onclick = "resetLogin()">Clear</button></label>
-  
-               <p><a href = "../pages/login.html">New? Register now!</a></p>
-          </div>
-        
+      <label for = "submit"><button class = "btn btn-warning" onclick = "validUser()">Login</button></label>
+      <label for = "resetlogin"><button class = "btn btn-warning"  onclick = "resetLogin()">Clear</button></label>
+          <br>
+          <p><a style="text-decoration: underline" href = "../pages/login.html">New? Register now!</a></p>
+      </div>
         </div>
         <!--modal end-->
 

@@ -58,13 +58,12 @@ body {
 .my-modal-content
 {
     background-color: #fefefe;
-    margin: 15% auto; 
-    padding: 20px;
-    border: 1px solid #888;
-    width: 50%;
+    margin: 10% auto;
+    padding: 32px 20px 20px 20px;
+    border: 1px solid black;
+    width: 40%;
     align-items: center;
-  
-   
+    position: relative;
 }
 
 @media only screen and (min-width: 1200px) {
@@ -74,22 +73,16 @@ body {
     }
 }
 
-
 .closetag
 {
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  color:#aaa;
-}
+  /*float: right;*/
+  font-size: 22px;
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    cursor: pointer;
 
-.closetag:hover,
-.closetag:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
 }
-
 .card-horizontal {
     display: flex;
     flex: 1 1 auto;
@@ -118,4 +111,12 @@ body {
 }
 .passReq {
     display:none;
+}
+
+#uname {
+    width: 170%;
+}
+
+#upass {
+    width: 170%;
 }
