@@ -14,7 +14,6 @@ function addProductPage(){
         var productInStore = JSON.parse(itemsInStore); //resonate products
         for (let i = 0; i < json.length; i++) {
             output +=
-
     `<div class="col-sm-3"><div class="card p-1">
         <img class="card-img-top animate__animated animate__fadeIn" src="${json[i].image}" alt="">
         <div class="card-body">
