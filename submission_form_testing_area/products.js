@@ -8,6 +8,22 @@ const cards = document.querySelector('#cards');
 
 const display = document.querySelector('.display');
 
+const formNotice = document.querySelector('.formNotice');
+
+//form validation
+
+// const formName = productName.value;
+//
+// const formPrice = productPrice.value;
+//
+// const patternName = /([a-zA-Z])\w+/;
+//
+// const patternPrice = /([a-zA-Z])\w+/;
+//
+// let resultName = patternName.test(formName);
+//
+// let resultPrice = patternPrice.test(formPrice);
+
 //Function to add products
 
 const addProducts = (furniture, id) => {
@@ -53,8 +69,6 @@ db.collection('furniture').onSnapshot(snapshot => {
         } else if (change.type === 'removed'){
             deleteFurniture(doc.id);
         }
-    }).catch (error => {
-        console.log(error);
     })
 })
 
@@ -62,6 +76,15 @@ db.collection('furniture').onSnapshot(snapshot => {
 
 form.addEventListener('submit', event => {
     event.preventDefault();
+
+    if (productName.value === '' || productPrice.value === ''){
+        formNotice.innerHTML = '<br><p class="text-danger">Please fill in both fields.</p>';
+
+    } else if (isNaN(productPrice.value)){
+        formNotice.innerHTML = '<br><p class="text-danger">Price must be in digits.</p>';
+
+    }
+    else {
 
     const now = new Date();
 
@@ -75,7 +98,8 @@ form.addEventListener('submit', event => {
         console.log('furniture added');
     }).catch(error => console.log(error));
     form.reset();
-});
+    formNotice.innerHTML = '<br><p class="text-success">Product successfully submitted.</p>';
+}});
 
 //delete button
 
