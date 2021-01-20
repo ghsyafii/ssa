@@ -2,13 +2,13 @@ const productName = document.querySelector('#productName');
 
 const productPrice = document.querySelector('#productPrice')
 
-const testDisplay = document.querySelector('.testDisplay');
-
 const form = document.querySelector('form');
 
 const cards = document.querySelector('#cards');
 
 const display = document.querySelector('.display');
+
+//Function to add products
 
 const addProducts = (furniture, id) => {
     let html = `<div data-id="${id}" class="col-sm-3"><div class="card p-1">
@@ -22,6 +22,8 @@ const addProducts = (furniture, id) => {
     cards.innerHTML += html;
 }
 
+//firebase - fetch from server
+
 db.collection('furniture').get().then((snapshot) => {
     snapshot.docs.forEach(doc => {
         addProducts(doc.data(), doc.id);
@@ -30,7 +32,7 @@ db.collection('furniture').get().then((snapshot) => {
     console.log(error);
 })
 
-//submit firebase
+//firebase - submit event listener
 
 form.addEventListener('submit', event => {
     event.preventDefault();
@@ -47,7 +49,7 @@ form.addEventListener('submit', event => {
         console.log('furniture added');
     }).catch(error => console.log(error));
     form.reset();
-    setTimeout(function(){window.location.reload();},100)
+    setTimeout(function(){window.location.reload();},1000)
 });
 
 //delete button
@@ -57,54 +59,16 @@ cards.addEventListener('click', event => {
     const id = event.target.parentElement.parentElement.parentElement.getAttribute('data-id');
     db.collection('furniture').doc(id).delete().then(() => {
         console.log('furniture deleted');
-        setTimeout(function(){window.location.reload();},100);
+        setTimeout(function(){window.location.reload();},1000);
     })
     }
 })
 
-
-//test: display product based on form submitted
-
-// form.addEventListener('submit', (event) => {
-//     event.preventDefault();
-//     cards.innerHTML +=
-//         `<div class="col-sm-3"><div class="card p-1">
-//         <img class="card-img-top animate__animated animate__fadeIn" src="https://ssafurniture.netlify.app/images/furniture/blackchair.jpg" alt="">
-//         <div class="card-body">
-//             <h5 class="card-title">${productName.value}</h5>
-//             <p class="card-text">$${productPrice.value}</p>
-//             <button id="addToCart" type="button" class="btn btn-warning">Add to cart</button>
-//         </div>
-//     </div></div>`
-//     form.reset();
-// })
-
-//test: add form info to local storage
-
-// form.addEventListener('submit', event => {
-//     event.preventDefault();
-//     const product = {
-//         name: productName.value,
-//         price: productPrice.value
-//     }
-//     const product_serialised = JSON.stringify(product);
-//     localStorage.setItem("furniture", product_serialised);
-//     form.reset();
-// })
-//
-// const retrieved = JSON.parse(localStorage.getItem("furniture"));
-// console.log(retrieved);
-
-
-
-
-
+// Ignore below: they're personal notes for final project tasks 4 to 7 - Syafii
 
 //task 4
 //products listing page
 //Add, remove and clear products to html page based on 10 hard-coded json products
-
-
 
 class ModelController{
     static addItem(item){

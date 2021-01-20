@@ -186,13 +186,3 @@ notConfirmed.addEventListener('click', ()=> {
 }
 
 
-
-
-{/* <div class="card">
-        <img class="card-img-top animate__animated animate__fadeIn" src="${cartItems[i].image}" alt="">
-        <div class="card-body">
-            <h5 class="card-title">${cartItems[i].name}</h5>
-            <p class="card-text">$${cartItems[i].price}</p>
-            <p class="card-text">Quantity: ${cartItems[i].inCart}</p>
-        </div>
-</div> */}
