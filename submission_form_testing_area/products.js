@@ -22,14 +22,40 @@ const addProducts = (furniture, id) => {
     cards.innerHTML += html;
 }
 
-//firebase - fetch from server
+//function to delete products
 
-db.collection('furniture').get().then((snapshot) => {
-    snapshot.docs.forEach(doc => {
-        addProducts(doc.data(), doc.id);
+const deleteFurniture = id => {
+    const furniture = document.querySelectorAll('div');
+    furniture.forEach(furniture => {
+        if (furniture.getAttribute('data-id') === id){
+            furniture.remove();
+        }
     })
-}).catch(error => {
-    console.log(error);
+}
+
+//firebase - fetch from server (NOT real-time)
+
+// db.collection('furniture').get().then((snapshot) => {
+//     snapshot.docs.forEach(doc => {
+//         addProducts(doc.data(), doc.id);
+//     })
+// }).catch(error => {
+//     console.log(error);
+// })
+
+//firebase - fetch from server real-time
+
+db.collection('furniture').onSnapshot(snapshot => {
+    snapshot.docChanges().forEach(change => {
+        const doc = change.doc;
+        if (change.type === 'added'){
+            addProducts(doc.data(), doc.id);
+        } else if (change.type === 'removed'){
+            deleteFurniture(doc.id);
+        }
+    }).catch (error => {
+        console.log(error);
+    })
 })
 
 //firebase - submit event listener
@@ -49,7 +75,6 @@ form.addEventListener('submit', event => {
         console.log('furniture added');
     }).catch(error => console.log(error));
     form.reset();
-    setTimeout(function(){window.location.reload();},1000)
 });
 
 //delete button
@@ -59,7 +84,6 @@ cards.addEventListener('click', event => {
     const id = event.target.parentElement.parentElement.parentElement.getAttribute('data-id');
     db.collection('furniture').doc(id).delete().then(() => {
         console.log('furniture deleted');
-        setTimeout(function(){window.location.reload();},1000);
     })
     }
 })
