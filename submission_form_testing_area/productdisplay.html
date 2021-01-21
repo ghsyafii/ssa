@@ -1,5 +1,4 @@
-<!--This is a page to test the form used to submit products to the server.
-It uses Google's firebase.-->
+<!--This is a page to display products from the server.-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,35 +14,18 @@ It uses Google's firebase.-->
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-    <title>Product Form</title>
+    <title>Product Display</title>
 </head>
 <body>
 
-<div class="container">
-<h1>Product Form</h1>
-<form>
-    <div class="form-group">
-        <label>Enter product name</label>
-        <input type="text" class="form-control" id="productName">
-    </div>
-    <div class="form-group">
-        <label>Enter price</label>
-        <input type="text" class="form-control" id="productPrice">
-    </div>
-    <button type="submit" value="add" class="btn btn-primary">Submit</button>
-    <a href="productdisplay.html" class="text-danger" target="_blank">&nbspView Products</a>
-</form>
-
-    <div class="formNotice"></div>
-<hr>
-
     <div class="container">
+        <h1>Product Display</h1><br>
         <div class="row">
-            <div id="cards" class="card-group testcarts">
+            <div id="productDisplay" class="card-group testcarts">
             </div>
         </div>
     </div>
-</div>
+
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
@@ -71,6 +53,31 @@ It uses Google's firebase.-->
     firebase.analytics();
     const db = firebase.firestore();
 </script>
-<script src="products.js"></script>
+<script>
+
+    const productDisplay = document.querySelector('#productDisplay');
+
+
+    function renderCards(furniture, id){
+        let html = `<div data-id="${id}" class="col-sm-3"><div class="card p-1">
+        <img class="card-img-top animate__animated animate__fadeIn" src="https://ssafurniture.netlify.app/images/furniture/blackchair.jpg" alt="">
+        <div class="card-body">
+            <h5 class="card-title">${furniture.data().name}</h5>
+            <p class="card-text">$${furniture.data().price}</p>
+            <button id="addToCart" type="button" class="btn btn-warning">Add to cart</button>
+        </div>
+    </div></div>`;
+
+        productDisplay.innerHTML += html;
+    }
+
+    db.collection('furniture').get().then(snapshot => {
+        snapshot.docs.forEach(doc => {
+            renderCards(doc);
+        })
+    })
+
+</script>
+<script src="../assets/furniture.js"></script>
 </body>
 </html>
