@@ -1,9 +1,13 @@
 body {
     font-family: 'Roboto', sans-serif;
-    /* background-color: #B4FFD6; */
     margin-right: 20px;
     margin-left: 20px;
     padding-top: 80px;
+    background-color: #FDFBF4 !important;
+}
+
+.navbar {
+    background-color: #FDFBF4 !important;
 }
 
 .navbar-brand {
