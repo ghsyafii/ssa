@@ -125,3 +125,12 @@ body {
 .navbar-toggler {
     border:0px;
 }
+
+#myModal {
+    /*z-index: 1;*/
+}
+
+.my-modal-content {
+    margin-top: 270px;
+}
+
