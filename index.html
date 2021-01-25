@@ -29,49 +29,94 @@
     <!-- Main Content -->
 
     <div class="container">
-        <nav class="navbar navbar-expand navbar-light bg-white fixed-top border-bottom border-dark">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top border-bottom border-dark">
 
-            <a href="index.html" class="navbar-brand"><img class="logo" src="images/logo/EllipseGroup2.svg"
-                    style="width:auto;height:30px;"></a>
+            <a href="index.html" class="navbar-brand"><img class="logo" src="images/logo/EllipseGroup2.svg" style="width:auto;height:30px;"></a>
 
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav mr-auto">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav mr-auto justify-content-start text-right">
                     <li class="nav-item">
                         <a href="pages/about.html" class="nav-link">ABOUT</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="pages/furniture.html" class="nav-link">FURNITURE</a>
+                        <a href="pages/furniture.html" class="nav-link active">FURNITURE</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="pages/objects.html" class="nav-link">OBJECTS</a>
-                    </li>
+                    <!--                <li class="nav-item">-->
+                    <!--                    <a href="objects.html" class="nav-link">OBJECTS</a>-->
+                    <!--                </li>-->
 
                     <li class="nav-item">
                         <a href="pages/contact.html" class="nav-link">CONTACT</a>
                     </li>
-
                 </ul>
-            </div>
+                <ul class="navbar-nav text-right">
+                    <!--                <li class="nav-item">-->
+                    <!--                    <a href="search.html" class="nav-link"><img src="../images/search.svg"-->
+                    <!--                                                                style="width:auto;height:17px;"></a>-->
+                    <!--                </li>-->
 
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ml-auto">
-
-                    <li class="nav-item">
-                        <a href="pages/search.html" class="nav-link"><img src="images/search.svg"
-                                style="width:auto;height:17px;"></a>
-                    </li>
                     <li class="nav-item nav-link" id="loginclick">Login
                     </li>
                     <li class="nav-item">
                         <a href="pages/cart.html" class="nav-link"><img src="images/cart.svg"
-                                style="width:auto;height:17px;">
+                                                                  style="width:auto;height:17px;">
                         </a>
                     </li>
                 </ul>
+
             </div>
         </nav>
     </div>
+
+<!--    <div class="container">-->
+<!--        <nav class="navbar navbar-expand navbar-light bg-white fixed-top border-bottom border-dark">-->
+
+<!--            <a href="index.html" class="navbar-brand"><img class="logo" src="images/logo/EllipseGroup2.svg"-->
+<!--                    style="width:auto;height:30px;"></a>-->
+
+<!--            <div class="collapse navbar-collapse">-->
+<!--                <ul class="navbar-nav mr-auto">-->
+<!--                    <li class="nav-item">-->
+<!--                        <a href="pages/about.html" class="nav-link">ABOUT</a>-->
+<!--                    </li>-->
+
+<!--                    <li class="nav-item">-->
+<!--                        <a href="pages/furniture.html" class="nav-link">FURNITURE</a>-->
+<!--                    </li>-->
+<!--                    <li class="nav-item">-->
+<!--                        <a href="pages/objects.html" class="nav-link">OBJECTS</a>-->
+<!--                    </li>-->
+
+<!--                    <li class="nav-item">-->
+<!--                        <a href="pages/contact.html" class="nav-link">CONTACT</a>-->
+<!--                    </li>-->
+
+<!--                </ul>-->
+<!--            </div>-->
+
+<!--            <div class="collapse navbar-collapse">-->
+<!--                <ul class="navbar-nav ml-auto">-->
+
+<!--                    <li class="nav-item">-->
+<!--                        <a href="pages/search.html" class="nav-link"><img src="images/search.svg"-->
+<!--                                style="width:auto;height:17px;"></a>-->
+<!--                    </li>-->
+<!--                    <li class="nav-item nav-link" id="loginclick">Login-->
+<!--                    </li>-->
+<!--                    <li class="nav-item">-->
+<!--                        <a href="pages/cart.html" class="nav-link"><img src="images/cart.svg"-->
+<!--                                style="width:auto;height:17px;">-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </nav>-->
+<!--    </div>-->
 
     <!-- ABOUT -->
 
@@ -183,10 +228,10 @@
     <div id ="myModal" class = "my-modal">
         <div class="my-modal-content">
             <span class="closetag">x</span>
-            <label for="username"><b>Email</b><br>
+            <label for="uname"><b>Email</b><br>
               <input type ="text" class ="login-username" name = "username" id="uname">
           </label><br>
-          <label for="password"><b>Password</b><br>
+          <label for="upass"><b>Password</b><br>
           <input type = "password" class = "login-password" id = "upass" name = "password">
       </label><br>
       <div class = "buttons-align">

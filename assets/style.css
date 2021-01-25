@@ -121,3 +121,7 @@ body {
 #upass {
     width: 170%;
 }
+
+.navbar-toggler {
+    opacity: 100%;
+}
