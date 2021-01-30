@@ -19,7 +19,7 @@ body {
 }
 
 a {
-    color:gray;
+    color: gray;
 }
 
 a:hover {
@@ -28,7 +28,7 @@ a:hover {
 }
 
 .createAccount {
-    color:#F91111;
+    color: #F91111;
 }
 
 .card {
@@ -41,8 +41,7 @@ body {
 
 /* login page */
 
-.my-modal
-{
+.my-modal {
     display: none;
     position: fixed;
     width: 100%;
@@ -58,8 +57,7 @@ body {
     cursor: pointer;
 }
 
-.my-modal-content
-{
+.my-modal-content {
     background-color: #fefefe;
     margin: 10% auto;
     padding: 32px 20px 20px 20px;
@@ -72,22 +70,21 @@ body {
 }
 
 @media only screen and (min-width: 1200px) {
-    .my-modal-content
-    {
+    .my-modal-content {
         width: 50%;
     }
 }
 
-.closetag
-{
-  /*float: right;*/
-  font-size: 22px;
+.closetag {
+    /*float: right;*/
+    font-size: 22px;
     position: absolute;
     top: 3px;
     right: 10px;
     cursor: pointer;
 
 }
+
 .card-horizontal {
     display: flex;
     flex: 1 1 auto;
@@ -95,27 +92,27 @@ body {
     height: 50%;
 }
 
-.resize-cart-image
-{
-    height:auto;
+.resize-cart-image {
+    height: auto;
     max-width: 100%;
 }
 
-#confirmclear{
+#confirmclear {
     position: fixed;
     width: 50%;
     height: 50%;
     top: 0;
     left: 20%;
-    
+
 }
 
 #testPass:hover > .passReq {
     display: block;
     position: relative;
 }
+
 .passReq {
-    display:none;
+    display: none;
 }
 
 #uname {
@@ -127,7 +124,7 @@ body {
 }
 
 .navbar-toggler {
-    border:0px;
+    border: 0px;
 }
 
 #myModal {
@@ -136,5 +133,9 @@ body {
 
 .my-modal-content {
     margin-top: 270px;
+}
+
+.loginlink {
+    cursor: pointer;
 }
 

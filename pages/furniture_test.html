@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <title>SSA • Furniture</title>
 </head>
@@ -72,7 +72,8 @@
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top border-bottom border-dark">
 
-        <a href="../index.html" class="navbar-brand"><img class="logo" src="../images/logo/EllipseGroup2.svg" style="width:auto;height:30px;"></a>
+        <a href="../index.html" class="navbar-brand"><img class="logo" src="../images/logo/EllipseGroup2.svg"
+                                                          style="width:auto;height:30px;"></a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler">
             <span class="navbar-toggler-icon"></span>
@@ -87,19 +88,19 @@
                 <li class="nav-item">
                     <a href="furniture.html" class="nav-link active">FURNITURE</a>
                 </li>
-<!--                <li class="nav-item">-->
-<!--                    <a href="objects.html" class="nav-link">OBJECTS</a>-->
-<!--                </li>-->
+                <!--                <li class="nav-item">-->
+                <!--                    <a href="objects.html" class="nav-link">OBJECTS</a>-->
+                <!--                </li>-->
 
                 <li class="nav-item">
                     <a href="contact.html" class="nav-link">CONTACT</a>
                 </li>
             </ul>
             <ul class="navbar-nav text-right">
-<!--                <li class="nav-item">-->
-<!--                    <a href="search.html" class="nav-link"><img src="../images/search.svg"-->
-<!--                                                                style="width:auto;height:17px;"></a>-->
-<!--                </li>-->
+                <!--                <li class="nav-item">-->
+                <!--                    <a href="search.html" class="nav-link"><img src="../images/search.svg"-->
+                <!--                                                                style="width:auto;height:17px;"></a>-->
+                <!--                </li>-->
 
                 <li class="nav-item nav-link" id="loginclick">Login
                 </li>
@@ -129,29 +130,54 @@
     </div>
 </div>
 
-<!-- Modal content -->
-<div id ="myModal" class = "my-modal">
-    <div class="my-modal-content">
-        <span class="closetag">X</span>
-        <label for="username"><b>Email</b><br>
-            <input type ="text" class ="login-username" name = "username" id="uname" placeholder="Enter email...">
-        </label><br>
-        <label for="password"><b>Password</b><br>
-            <input type = "password" class = "login-password" id = "upass" name = "password" placeholder="Enter password...">
-        </label><br>
-        <div class = "buttons-align">
-            <label for = "submit"><button onclick = "validUser()">Login</button></label>
-            <label for = "resetlogin"><button onclick = "resetLogin()">Clear</button></label>
+<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Login</button>
 
-            <p><a href = "../pages/login.html">New? Register now!</a></p>
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Hello World</h5>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Lorem ipsum dolor</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal content -->
+<div id="myModal" class="my-modal">
+    <div class="my-modal-content modal-dialog">
+        <span class="closetag">X</span>
+        <label for="uname"><b>Email</b><br>
+            <input type="text" class="login-username" name="username" id="uname" placeholder="Enter email...">
+        </label><br>
+        <label for="upass"><b>Password</b><br>
+            <input type="password" class="login-password" id="upass" name="password" placeholder="Enter password...">
+        </label><br>
+        <div class="buttons-align">
+            <label for="submit">
+                <button onclick="validUser()" class="btn btn-warning">Login</button>
+            </label>
+            <label for="resetlogin">
+                <button class="btn btn-warning" onclick="resetLogin()">Clear</button>
+            </label>
+
+            <p><a href="../pages/login.html">New? Register now!</a></p>
         </div>
 
     </div>
     <!--modal end-->
 
     <!-- General scripts -->
-<!--    <script type="text/javascript" src="../assets/furniture.js"></script>-->
-<!--    <script src="../assets/furniture.json"></script>-->
+    <!--    <script type="text/javascript" src="../assets/furniture.js"></script>-->
+    <!--    <script src="../assets/furniture.json"></script>-->
 
     <!-- Bootstrap js scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -193,7 +219,7 @@
         const displayCards = document.querySelector('.displayCards');
 
 
-        function renderCards(furniture, id){
+        function renderCards(furniture, id) {
             let html = `<div data-id="${id}" class="col-sm-3"><div class="card p-1">
         <img class="card-img-top animate__animated animate__fadeIn" src="https://ssafurniture.netlify.app/images/furniture/blackchair.jpg" alt="">
         <div class="card-body">
@@ -213,7 +239,7 @@
         })
 
     </script>
-<!--    <script src="/assets/furniture_test.js.js"></script>-->
+    <!--    <script src="/assets/furniture_test.js.js"></script>-->
     <script src="https://kit.fontawesome.com/164359d161.js" crossorigin="anonymous"></script>
 </body>
 
