@@ -79,8 +79,10 @@
 <!--                <li class="nav-item nav-link" id="loginclick">Login-->
 <!--                </li>-->
 
-                <li class="nav-item nav-link loginlink" data-toggle="modal" data-target="#myModal">Login
+                <li id="navLogin" class="nav-item nav-link loginlink" data-toggle="modal" data-target="#myModal">Login
                 </li>
+
+                <li id="navLogout" class="nav-item nav-link d-none">Logout</li>
 
                 <li class="nav-item">
                     <a href="pages/cart.html" class="nav-link"><img src="images/cart.svg"
@@ -241,7 +243,7 @@
 
 <!-- Furniture Scripts -->
 
-<script type="text/javascript" src="../assets/furnitureIndex.js"></script>
+<!--<script type="text/javascript" src="../assets/furnitureIndex.js"></script>-->
 <!-- <script src="../assets/furniture.json"></script> -->
 
 <div class="modal fade" id="myModal">
@@ -271,7 +273,6 @@
             <div class="modal-footer">
                 <button id="btnLogin" class="btn btn-warning">Sign in</button>
                 <button id="btnSignUp" class="btn btn-success">Register</button>
-                <button id="btnLogout" class="btn btn-action text-danger hide">Logout</button>
 <!--                <button class="btn btn-success" data-dismiss="modal">Close</button>-->
             </div>
         </div>

@@ -10,13 +10,19 @@ var firebaseConfig = {
     measurementId: "G-DRJ3RC2EKG"
 };
 
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+const db = firebase.firestore();
+
 //Get elements
 
 const txtEmail = document.getElementById('txtEmail');
 const txtPassword = document.getElementById('txtPassword');
 const btnLogin = document.getElementById('btnLogin');
 const btnSignUp = document.getElementById('btnSignUp');
-const btnLogout = document.getElementById('btnLogout');
+const navLogout = document.getElementById('navLogout');
+const navLogin = document.getElementById('navLogin');
 
 //add login event
 
@@ -29,10 +35,10 @@ btnLogin.addEventListener('click', e => {
     const promise = auth.signInWithEmailAndPassword(email,pass);
     promise
         .then(e => {
-            btnLogout.classList.remove('hide');
+          console.log(e.message, 'logged in!')
         })
         .catch(e => {
-        console.log(e.message, 'logged in!');
+        console.log(e.message, 'error!');
     })
 })
 
@@ -54,25 +60,29 @@ btnSignUp.addEventListener('click', e => {
 
 //add logout (NOT WORKING YET)
 
-btnLogout.addEventListener('click', e => {
-    firebase.auth().signOut();
+navLogout.addEventListener('click', e => {
+    firebase.auth().signOut()
+        .then(() => {
+            console.log("logout success");
+        })
+        .catch(() => {
+            console.log("logout error");
+        })
 });
 
 
 // Add a realtime listener (FIX THIS)
-// firebase.auth().onAuthStateChanged(firebaseUser => {
-//     if (firebaseUser){
-//         console.log(firebaseUser);
-//     } else {
-//         console.log('not logged in');
-//     }
-// })
-
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-const db = firebase.firestore();
+firebase.auth().onAuthStateChanged(firebaseUser => {
+    if (firebaseUser){
+        console.log('user is signed in');
+        navLogin.classList.add('d-none');
+        navLogout.classList.remove('d-none');
+    } else {
+        console.log('no user signed in');
+        navLogin.classList.remove('d-none');
+        navLogout.classList.add('d-none');
+    }
+})
 
 //Initialise authentication
 // const auth = firebase.auth();

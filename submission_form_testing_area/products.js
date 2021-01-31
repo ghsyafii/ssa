@@ -90,7 +90,8 @@ form.addEventListener('submit', event => {
         const furniture = {
             name: productName.value,
             price: productPrice.value,
-            created_at: firebase.firestore.Timestamp.fromDate(now)
+            created_at: firebase.firestore.Timestamp.fromDate(now),
+            quantity: 1
         };
 
         db.collection('furniture').add(furniture).then(() => {
