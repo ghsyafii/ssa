@@ -63,6 +63,7 @@ btnSignUp.addEventListener('click', e => {
             console.log(user, 'you are signed up!');
             registerSuccess.classList.remove('d-none');
             plsRegisterNotice.classList.add('d-none');
+            loginForm.reset();
         })
         .catch(e => {
         console.log(e.message);
@@ -75,9 +76,11 @@ navLogout.addEventListener('click', e => {
     firebase.auth().signOut()
         .then(() => {
             console.log("logout success");
+            loginForm.reset();
         })
         .catch(() => {
             console.log("logout error");
+            loginForm.reset();
         })
 });
 
