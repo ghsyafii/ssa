@@ -147,3 +147,11 @@ body {
     cursor: pointer;
 }
 
+.badNotice {
+    color: #F91111;
+}
+
+.goodNotice {
+    color: #28A745;
+}
+

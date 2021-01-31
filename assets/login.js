@@ -23,7 +23,11 @@ const btnLogin = document.getElementById('btnLogin');
 const btnSignUp = document.getElementById('btnSignUp');
 const navLogout = document.getElementById('navLogout');
 const navLogin = document.getElementById('navLogin');
-
+const signedInNotice = document.getElementById('signedInNotice');
+const alreadyRegisteredNotice = document.getElementById('alreadyRegisteredNotice');
+const plsRegisterNotice = document.getElementById('plsRegisterNotice');
+const loginForm = document.querySelector('form');
+const registerSuccess = document.getElementById('registerSuccess');
 //add login event
 
 btnLogin.addEventListener('click', e => {
@@ -35,10 +39,13 @@ btnLogin.addEventListener('click', e => {
     const promise = auth.signInWithEmailAndPassword(email,pass);
     promise
         .then(e => {
-          console.log(e.message, 'logged in!')
+          console.log(e.message, 'logged in!');
+          signedInNotice.classList.remove('d-none');
+          loginForm.reset();
         })
         .catch(e => {
         console.log(e.message, 'error!');
+        plsRegisterNotice.classList.remove('d-none');
     })
 })
 
@@ -52,7 +59,11 @@ btnSignUp.addEventListener('click', e => {
     //register
     const promise = auth.createUserWithEmailAndPassword(email,pass);
     promise
-        .then(user => console.log(user, 'you are signed up!'))
+        .then(user => {
+            console.log(user, 'you are signed up!');
+            registerSuccess.classList.remove('d-none');
+            plsRegisterNotice.classList.add('d-none');
+        })
         .catch(e => {
         console.log(e.message);
     })
@@ -71,7 +82,7 @@ navLogout.addEventListener('click', e => {
 });
 
 
-// Add a realtime listener (FIX THIS)
+// Add a realtime listener
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser){
         console.log('user is signed in');
@@ -81,6 +92,8 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         console.log('no user signed in');
         navLogin.classList.remove('d-none');
         navLogout.classList.add('d-none');
+        signedInNotice.classList.add('d-none');
+        registerSuccess.classList.add('d-none');
     }
 })
 
