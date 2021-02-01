@@ -1,3 +1,7 @@
+//Add Admin cloud function
+
+
+
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 var firebaseConfig = {
@@ -26,8 +30,11 @@ const navLogin = document.getElementById('navLogin');
 const signedInNotice = document.getElementById('signedInNotice');
 const alreadyRegisteredNotice = document.getElementById('alreadyRegisteredNotice');
 const plsRegisterNotice = document.getElementById('plsRegisterNotice');
-const loginForm = document.querySelector('form');
+const loginForm = document.querySelector('.login-form');
 const registerSuccess = document.getElementById('registerSuccess');
+const registerFailed = document.querySelector('#registerFailed');
+const adminbtn = document.querySelector('.admin-btn');
+const functions = firebase.functions();
 //add login event
 
 btnLogin.addEventListener('click', e => {
@@ -55,6 +62,8 @@ btnSignUp.addEventListener('click', e => {
     //get email and password
     const email = txtEmail.value;
     const pass = txtPassword.value;
+    //login authentication
+    //
     const auth = firebase.auth();
     //register
     const promise = auth.createUserWithEmailAndPassword(email,pass);
@@ -63,10 +72,12 @@ btnSignUp.addEventListener('click', e => {
             console.log(user, 'you are signed up!');
             registerSuccess.classList.remove('d-none');
             plsRegisterNotice.classList.add('d-none');
+            registerFailed.classList.add('d-none');
             loginForm.reset();
         })
         .catch(e => {
         console.log(e.message);
+        registerFailed.classList.remove('d-none');
     })
 })
 
@@ -88,6 +99,12 @@ navLogout.addEventListener('click', e => {
 // Add a realtime listener
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser){
+        firebaseUser.getIdTokenResult().then(idTokenResult => {
+            if(idTokenResult.claims.user_id === "UDqWpJ9luOZeoNaBX0SrqyYctQz1" || idTokenResult.claims.user_id === "qDDtgGgAHZUfSuFNj2cHfeu66Nc2"){
+                console.log('admin in the house');
+                adminbtn.classList.remove('d-none');
+            };
+        })
         console.log('user is signed in');
         navLogin.classList.add('d-none');
         navLogout.classList.remove('d-none');
@@ -97,8 +114,13 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         navLogout.classList.add('d-none');
         signedInNotice.classList.add('d-none');
         registerSuccess.classList.add('d-none');
+        adminbtn.classList.add('d-none');
     }
 })
+
+// loginForm.onsubmit = () => {
+//
+// }
 
 //Initialise authentication
 // const auth = firebase.auth();

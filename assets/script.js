@@ -74,7 +74,6 @@ addToLocalStorage = (event) => {
         addInfo();
         passUsers();
         window.location.href = "contact.html";
-
     }
 }
 
