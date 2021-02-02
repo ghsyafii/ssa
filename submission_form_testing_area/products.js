@@ -1,12 +1,28 @@
 const productName = document.querySelector('#productName');
 
-const productPrice = document.querySelector('#productPrice')
+const productPrice = document.querySelector('#productPrice');
 
 const form = document.querySelector('form');
 
 const cards = document.querySelector('#cards');
 
 const display = document.querySelector('.display');
+
+const formNotice = document.querySelector('.formNotice');
+
+//form validation
+
+// const formName = productName.value;
+//
+// const formPrice = productPrice.value;
+//
+// const patternName = /([a-zA-Z])\w+/;
+//
+// const patternPrice = /([a-zA-Z])\w+/;
+//
+// let resultName = patternName.test(formName);
+//
+// let resultPrice = patternPrice.test(formPrice);
 
 //Function to add products
 
@@ -22,14 +38,38 @@ const addProducts = (furniture, id) => {
     cards.innerHTML += html;
 }
 
-//firebase - fetch from server
+//function to delete products
 
-db.collection('furniture').get().then((snapshot) => {
-    snapshot.docs.forEach(doc => {
-        addProducts(doc.data(), doc.id);
+const deleteFurniture = id => {
+    const furniture = document.querySelectorAll('div');
+    furniture.forEach(furniture => {
+        if (furniture.getAttribute('data-id') === id) {
+            furniture.remove();
+        }
     })
-}).catch(error => {
-    console.log(error);
+}
+
+//firebase - fetch from server (NOT real-time)
+
+// db.collection('furniture').get().then((snapshot) => {
+//     snapshot.docs.forEach(doc => {
+//         addProducts(doc.data(), doc.id);
+//     })
+// }).catch(error => {
+//     console.log(error);
+// })
+
+//firebase - fetch from server real-time
+
+db.collection('furniture').onSnapshot(snapshot => {
+    snapshot.docChanges().forEach(change => {
+        const doc = change.doc;
+        if (change.type === 'added') {
+            addProducts(doc.data(), doc.id);
+        } else if (change.type === 'removed') {
+            deleteFurniture(doc.id);
+        }
+    })
 })
 
 //firebase - submit event listener
@@ -37,30 +77,39 @@ db.collection('furniture').get().then((snapshot) => {
 form.addEventListener('submit', event => {
     event.preventDefault();
 
-    const now = new Date();
+    if (productName.value === '' || productPrice.value === '') {
+        formNotice.innerHTML = '<br><p class="text-danger">Please fill in both fields.</p>';
 
-    const furniture = {
-        name: productName.value,
-        price: productPrice.value,
-        created_at: firebase.firestore.Timestamp.fromDate(now)
-    };
+    } else if (isNaN(productPrice.value)) {
+        formNotice.innerHTML = '<br><p class="text-danger">Price must be in digits.</p>';
 
-    db.collection('furniture').add(furniture).then(() => {
-        console.log('furniture added');
-    }).catch(error => console.log(error));
-    form.reset();
-    setTimeout(function(){window.location.reload();},1000)
+    } else {
+
+        const now = new Date();
+
+        const furniture = {
+            name: productName.value,
+            price: productPrice.value,
+            created_at: firebase.firestore.Timestamp.fromDate(now),
+            quantity: 1
+        };
+
+        db.collection('furniture').add(furniture).then(() => {
+            console.log('furniture added');
+        }).catch(error => console.log(error));
+        form.reset();
+        formNotice.innerHTML = '<br><p class="text-success">Product successfully submitted.</p>';
+    }
 });
 
 //delete button
 
 cards.addEventListener('click', event => {
-    if(event.target.tagName === 'BUTTON'){
-    const id = event.target.parentElement.parentElement.parentElement.getAttribute('data-id');
-    db.collection('furniture').doc(id).delete().then(() => {
-        console.log('furniture deleted');
-        setTimeout(function(){window.location.reload();},1000);
-    })
+    if (event.target.tagName === 'BUTTON') {
+        const id = event.target.parentElement.parentElement.parentElement.getAttribute('data-id');
+        db.collection('furniture').doc(id).delete().then(() => {
+            console.log('furniture deleted');
+        })
     }
 })
 
@@ -70,16 +119,18 @@ cards.addEventListener('click', event => {
 //products listing page
 //Add, remove and clear products to html page based on 10 hard-coded json products
 
-class ModelController{
-    static addItem(item){
+class ModelController {
+    static addItem(item) {
         //adds a new card layout to the div where you display product cards
         console.log('item added');
     }
-    static removeItem(itemId){
+
+    static removeItem(itemId) {
         //removes the item from the div and the data structure if the item exists with the given id
         console.log('item removed');
     }
-    static clearAllItems(){
+
+    static clearAllItems() {
         //removes all items from the div list and items in data structure
         console.log('all items cleared');
     }
@@ -89,10 +140,11 @@ class ModelController{
 //form page to submit products as json objects to product listings page
 
 class Form {
-    static loadItemDetails(){
+    static loadItemDetails() {
         //sets the item information from the form fields
     }
-    static validateForm(){
+
+    static validateForm() {
         //validates input from form, displaying error if wrong
     }
 }
@@ -107,10 +159,11 @@ class Form {
 //user registration form
 
 class UserController {
-    static storeUser(user){
+    static storeUser(user) {
         //store registered user to memory (local storage? spring boot/mysql?)
     }
-    static verifyUser(user){
+
+    static verifyUser(user) {
         //verify login credentials with users saved in memory
     }
 }
