@@ -50,45 +50,49 @@ function addProductPage(){
     function setItems(productInStore){
         var cartItems = localStorage.getItem('itemsInCart');
         cartItems = JSON.parse(cartItems);
-        console.log(cartItems);
-        if(cartItems == null){
-                var y = {
-                    name: productInStore.name,
-                    price: productInStore.price,
-                    inCart: productInStore.inCart +=1
-                }
+        var y = {
+            name: productInStore.name,
+            price: productInStore.price,
+            inCart: productInStore.inCart +=1
+        }
+        if(cartItems == null || cartItems == undefined){
             var x = JSON.parse(localStorage.getItem("itemsInCart")) || [];
             x.push(y);
             localStorage.setItem('itemsInCart', JSON.stringify(x));
+            localStorage.setItem('testing', JSON.stringify(x));
 
         }
         else{
+            var x = JSON.parse(localStorage.getItem("itemsInCart")) || [];
             var y = {
                 name: productInStore.name,
                 price: productInStore.price,
-                inCart: productInStore.inCart +=1
+                inCart: productInStore.inCart
             }
-            console.log(Object.values(y) + "line 70")
-            var x = JSON.parse(localStorage.getItem("itemsInCart")) || [];
+            console.log(Object.values(y) + "line 73")
+            // console.log("this is at " + x);
             var itemLocation = x.map(item => item.name).indexOf(y.name);
-            if(itemLocation != -1){
-            x.splice(itemLocation, 1);
-            console.log(x);
-            console.log(itemLocation+ " it is here");
-            x.push(y);
-            localStorage.setItem('itemsInCart', JSON.stringify(x));
-            }
-            else{
-                console.log("its new");
-                x.push(y);
-                localStorage.setItem('itemsInCart', JSON.stringify(x));}
-            }
-            (localStorage.getItem("itemsInCart")) || [];
-            //     x.push(b);
-            //     localStorage.setItem('itemsInCart', JSON.stringify(x));
+            {if (itemLocation != -1) {
+                    x.forEach((item) => {
+                        if (item.name === y.name) {
+                           item.inCart +=1;
+                            x.splice(itemLocation, 1, item);
+                            console.log("this is item2+++++" + item.inCart);
+                        }
+                        console.log(itemLocation + " it is here");
+                        localStorage.setItem('itemsInCart', JSON.stringify(x));
+                        localStorage.setItem('testing', JSON.stringify(x));
+                    });
+                } else {
+                    console.log("its new");
+                    x.push(y);
+                    localStorage.setItem('itemsInCart', JSON.stringify(x))
+                    localStorage.setItem('testing', JSON.stringify(x));
+                }}
+            }}
 
-            console.log("here is the else");
-    }
+
+    })
     
     //setitem en
 
@@ -104,11 +108,6 @@ function addProductPage(){
         }
     }
     //price ends
-
-
-
-    }
-    )
 
     
 }
