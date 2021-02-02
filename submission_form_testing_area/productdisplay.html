@@ -60,7 +60,7 @@
 
     function renderCards(furniture, id) {
         let html = `<div data-id="${id}" class="col-sm-3"><div class="card p-1">
-        <img class="card-img-top animate__animated animate__fadeIn" src="https://ssafurniture.netlify.app/images/furniture/blackchair.jpg" alt="">
+        <img class="card-img-top animate__animated animate__fadeIn" src="${furniture.data().image}" alt="">
         <div class="card-body">
             <h5 class="card-title">${furniture.data().name}</h5>
             <p class="card-text">$${furniture.data().price}</p>
