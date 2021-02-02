@@ -5,7 +5,6 @@ function addProductPage(){
     fetch('../assets/furniture.json')
     .then((response) => response.json())
     .then((json) => {
-        // console.log(json);
         const cards = json;
         let output = "";
         const products = JSON.stringify(json);
@@ -53,6 +52,7 @@ function addProductPage(){
         var y = {
             name: productInStore.name,
             price: productInStore.price,
+            image: productInStore.image,
             inCart: productInStore.inCart +=1
         }
         if(cartItems == null || cartItems == undefined){
@@ -67,6 +67,7 @@ function addProductPage(){
             var y = {
                 name: productInStore.name,
                 price: productInStore.price,
+                image: productInStore.image,
                 inCart: productInStore.inCart
             }
             console.log(Object.values(y) + "line 73")
@@ -94,21 +95,7 @@ function addProductPage(){
 
     })
     
-    //setitem en
-
-    //price starts
-    function calCost(productInStore){
-        let cartCost = localStorage.getItem("totalCost");
-        
-        if (cartCost != null){
-            cartCost = parseInt(cartCost); //conversion required for math
-            localStorage.setItem("totalCost", cartCost+= productInStore.price);
-        }else{
-            localStorage.setItem("totalCost", productInStore.price);
-        }
-    }
-    //price ends
-
+    //setitem end
     
 }
 
@@ -146,11 +133,6 @@ if(cartItems && itemContainer){
         </div>`
        }
 
-        let totalCost = localStorage.getItem("totalCost");
-        totalCost = JSON.parse(totalCost);
-        var totalPricePage = document.querySelector('.totalPrice');
-        totalPricePage.innerHTML +=  `$${totalCost}`;
-
         var removeCart = document.querySelectorAll("#removecart");
         removeCart.forEach(item => {
             item.addEventListener('click', (event) => {
@@ -159,124 +141,49 @@ if(cartItems && itemContainer){
                 cartItems = JSON.parse(cartItems);
                 console.log(cartItems);
                 cartItems = Object.values(cartItems);
-                    var itemLocation = cartItems.map(item => item.name).indexOf(itemId);
-                    var x= cartItems.splice(itemLocation, 1);
-                    localStorage.setItem("testing", JSON.stringify(x));
-                    x= JSON.parse(localStorage.getItem('testing'));
-                    console.log(x);
-                    console.log(itemId);
-                    const array=[];
-
-                    let totalCost = localStorage.getItem("totalCost");
-                    totalCost = JSON.parse(totalCost);
-                  for (var i =0; i<cartItems.length;i++){
-                    cartItems[cartItems[i].name]={name: cartItems[i].name, price: cartItems[i].price};
-                        console.log(cartItems[cartItems[i].name]);
-
-
-                        //localStorage.setItem("itemsInCart", JSON.stringify(item));
-                  }
-
+                var itemLocation = cartItems.map(item => item.name).indexOf(itemId);
+                {if (itemLocation != -1) {
+                    cartItems.forEach((item) => {
+                        if (item.name === itemId) {
+                            item.inCart -=1;
+                            cartItems.splice(itemLocation, 1, item);
+                            console.log("this is item3+++++" + item.inCart);
+                        }
+                        console.log(itemLocation + " it is here");
+                        localStorage.setItem('itemsInCart', JSON.stringify(cartItems));
+                        localStorage.setItem('testing', JSON.stringify(cartItems));
+                        window.location.reload();
+                    });
+                }}
+                var cartItems = localStorage.getItem('itemsInCart');
+                cartItems = JSON.parse(cartItems);
+               cartItems.forEach((item) => {
+               if (item.inCart === 0) {
+                   var itemLocation = cartItems.map(item => item).indexOf(item);
+                   cartItems.splice(itemLocation, 1);
+                   event.target.parentElement.parentElement.remove();
+                   localStorage.setItem('itemsInCart', JSON.stringify(cartItems));
+                   localStorage.setItem('testing', JSON.stringify(cartItems));
+               }})
 
                     console.log("worked");
-                    event.target.parentElement.parentElement.remove();
-                    calCost(productInStore);
                     console.log("hello");
-
-                cartPrice();
-
 
                     })
 
         })
 
-        // let totalCost = localStorage.getItem("totalCost");
-        // totalCost = JSON.parse(totalCost);
-        // var totalPricePage = document.querySelector('.totalPrice');
-        // totalPricePage.innerHTML +=  `$${totalCost}`;
+    cartItems = localStorage.getItem('itemsInCart');
+    cartItems = JSON.parse(cartItems);
+    var sum =0;
+    cartItems.forEach((item) => {
+        sum += item.inCart * item.price;
+        console.log(sum);
+    });
+    var totalPricePage = document.querySelector('.totalPrice');
+    totalPricePage.innerHTML += `$${sum}`;
 
 
-         //remove starts
-
-    // var removeCart = document.querySelectorAll("#removecart"); 
-    // for(let i =0; i< removeCart.length; i++){
-    //     removeCart[i].addEventListener('click', () =>{
-    //     console.log("remove exist");
-    //     removeItems(cartItems);
-    //         });
-    //     }
-
-    //remove ends
-
-     //setitem start
-    //  var removeCart = document.querySelectorAll("#removecart");
-    //  removeCart.forEach(item => {
-    //         item.addEventListener('click', (event) => {
-    //             let itemId = event.target.parentElement.parentElement.id;
-    //             var cartItems = localStorage.getItem('itemsInCart');
-    //             cartItems = JSON.parse(cartItems);
-    //             cartItems =Object.values(cartItems);
-    //             var check = false;
-    //             for(var i=0; i<cartItems.length;i++){
-    //                 if(cartItems[i].name == itemId){
-    //                     check = true;
-    //                     cartItems[i].inCart--;
-    //                     cartItems= {
-    //                         [cartItems.name] : cartItems
-    //                     }
-
-    //                 }
-    //                 localStorage.setItem("itemsInCart", JSON.stringify(cartItems))
-    //                 console.log("done");
-
-    //             }
-    //             if (check == false){
-    //                 console.log("nothing");
-    //             }
-
-
-
-
-
-
-
-
-
-    //             // var itemLocation = cartItems.map(item => item.name).indexOf(itemId);
-    //             //    cartItems.splice(itemLocation, 1);
-    //             //     cartItems.forEach(item => {
-    //             //             item ={
-    //             //             [item.name]: item}
-    //             //             console.log(item);
-    //             //             let x = JSON.parse(localStorage.getItem("itemsInCart")) || [];
-    //             //             x.push(item);
-    //             //             localStorage.setItem('itemsInCart', JSON.stringify(x));
-    //             //         })
-
-    //             // var itemLocation = cartItems.map(item => item.name).indexOf(itemId);
-    //             // var x = cartItems.splice(itemLocation, 1);
-    //             // cartItems.forEach(item => {
-    //             //     item ={
-    //             //     [item.name]: item}
-    //             //     console.log(item);
-    //             //     let x = [];
-    //             //     x.push([item]);
-    //             //     console.log(x);
-    //             // })
-
-    //             // x.forEach(item => {
-    //             //     item.inCart -=1;
-
-    //             //     item ={
-    //             //         [item.name]: item
-    //             //     }
-    //             //     console.log(item);
-    //             //     //localStorage.setItem('itemsInCart', JSON.stringify(item));
-
-
-    //             // });
-    //         })
-    //     })
 
 
    //to clear page and local storage
