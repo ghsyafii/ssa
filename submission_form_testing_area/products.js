@@ -96,8 +96,7 @@ form.addEventListener('submit', event => {
             price: productPrice.value,
             image: productImage.value,
             quantity: productQuantity.value,
-            created_at: firebase.firestore.Timestamp.fromDate(now),
-            quantity: 1
+            created_at: firebase.firestore.Timestamp.fromDate(now)
         };
 
         db.collection('furniture').add(furniture).then(() => {
