@@ -2,6 +2,8 @@ const productName = document.querySelector('#productName');
 
 const productPrice = document.querySelector('#productPrice');
 
+const productImage = document.querySelector('#productImage');
+
 const form = document.querySelector('form');
 
 const cards = document.querySelector('#cards');
@@ -9,6 +11,8 @@ const cards = document.querySelector('#cards');
 const display = document.querySelector('.display');
 
 const formNotice = document.querySelector('.formNotice');
+
+const productQuantity = document.querySelector('#productQuantity');
 
 //form validation
 
@@ -28,7 +32,7 @@ const formNotice = document.querySelector('.formNotice');
 
 const addProducts = (furniture, id) => {
     let html = `<div data-id="${id}" class="col-sm-3"><div class="card p-1">
-        <img class="card-img-top animate__animated animate__fadeIn" src="https://ssafurniture.netlify.app/images/furniture/blackchair.jpg" alt="">
+        <img class="card-img-top animate__animated animate__fadeIn" src="${furniture.image}" alt="">
         <div class="card-body">
             <h5 class="card-title">${furniture.name}</h5>
             <p class="card-text">$${furniture.price}</p>
@@ -77,7 +81,7 @@ db.collection('furniture').onSnapshot(snapshot => {
 form.addEventListener('submit', event => {
     event.preventDefault();
 
-    if (productName.value === '' || productPrice.value === '') {
+    if (productName.value === '' || productPrice.value === '' || productImage.value === '') {
         formNotice.innerHTML = '<br><p class="text-danger">Please fill in both fields.</p>';
 
     } else if (isNaN(productPrice.value)) {
@@ -90,8 +94,9 @@ form.addEventListener('submit', event => {
         const furniture = {
             name: productName.value,
             price: productPrice.value,
-            created_at: firebase.firestore.Timestamp.fromDate(now),
-            quantity: 1
+            image: productImage.value,
+            quantity: productQuantity.value,
+            created_at: firebase.firestore.Timestamp.fromDate(now)
         };
 
         db.collection('furniture').add(furniture).then(() => {

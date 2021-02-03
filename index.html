@@ -11,6 +11,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-functions.js"></script>
+
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -84,10 +86,13 @@
 
                 <li id="navLogout" class="nav-item nav-link d-none">Logout</li>
 
+                <li class="nav-item nav-link d-none  admin-btn"><a href="submission_form_testing_area/productform.html" class="text-danger">Admin</a></li>
+
                 <li class="nav-item">
                     <a href="pages/cart.html" class="nav-link"><img src="images/cart.svg"
                                                                     style="width:auto;height:17px;">
                     </a>
+
                 </li>
             </ul>
 
@@ -232,10 +237,10 @@
             <img src="images/LRNCE_15.jpg" class="mainimage img-fluid animate__animated animate__fadeIn">
         </div>
     </div>
-    <div>
-        <footer><a href="submission_form_testing_area/productform.html" style="cursor: pointer" class="text-danger">Admin</a>
-        </footer>
-    </div>
+<!--    <div>-->
+<!--        <footer><a href="submission_form_testing_area/productform.html" style="cursor: pointer" class="text-danger admin-btn d-none">Admin</a>-->
+<!--        </footer>-->
+<!--    </div>-->
 </div>
 
 <!--Under Construction: Footer-->
@@ -257,7 +262,7 @@
 
 
             <div class="modal-body">
-                <form>
+                <form class="login-form">
                     <div class="form-group">
                         <label for="txtEmail" class="col-form-label">Email</label>
                         <input id="txtEmail" type="email" class="form-control">
@@ -269,6 +274,7 @@
                         <p id="alreadyRegisteredNotice" class="badNotice d-none">You've already registered.</p>
                         <p id="plsRegisterNotice" class="badNotice d-none">You have to register first.</p>
                         <p id="registerSuccess" class="goodNotice d-none">You've successfully registered!</p>
+                        <p id="registerFailed" class="goodNotice d-none text-danger">Please enter a valid email and password.</p>
                     </div>
 <!--                    <a href="pages/login.html" class="register-new-user text-danger">New? Register now!</a>-->
                 </form>
