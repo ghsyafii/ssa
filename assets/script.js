@@ -1,17 +1,17 @@
 //Login pop-up
 
-// var myModal = document.getElementById("myModal");
-// var clickLogin = document.getElementById("loginclick");
-// var span = document.getElementsByClassName("closetag")[0];
-// var userName = document.getElementById("uname");
-// var userPass = document.getElementById("upass");
+var myModal = document.getElementById("myModal");
+var clickLogin = document.getElementById("loginclick");
+var span = document.getElementsByClassName("closetag")[0];
+var userName = document.getElementById("uname");
+var userPass = document.getElementById("upass");
 
-// clickLogin.addEventListener('click', function () {
-//     if (myModal.style.display == "none" || myModal.style.display == '') {
-//         myModal.style.display = "block";
-//     } else
-//         myModal.style.display = "none";
-// });
+clickLogin.addEventListener('click', function () {
+    if (myModal.style.display == "none" || myModal.style.display == '') {
+        myModal.style.display = "block";
+    } else
+        myModal.style.display = "none";
+});
 
 span.addEventListener('click', function () {
     if (myModal.style.display == "block")
@@ -100,6 +100,9 @@ function addInfo() {
         postal: inputPostal.value
     }
 
+//   var infoStore = JSON.parse(localStorage.getItem('listInfo')) || []; // a default setting
+//   infoStore.push(addStuff);
+//   localStorage.setItem('listInfo', JSON.stringify(infoStore));
 
     // infoStore.push(addStuff);
     // localStorage.setItem('listInfo', JSON.stringify(infoStore));
@@ -107,8 +110,7 @@ function addInfo() {
     infoStore.push(addStuff);
     localStorage.setItem('listInfo', JSON.stringify(infoStore));
 
-
-}
+// }
 
 //end of signup
 
@@ -196,7 +198,32 @@ function resetLogin() {
 // }
 
 
+// Posting =()=>{
+
+// const data = { name: inputFirstName.value,
+// email: inputEmail.value,
+// password: inputPassword.value,
+// phone: inputPhone.value,
+// address: inputAddress.value };
+
+// fetch('http://localhost:8080/ssa/add', {
+//   method: 'POST', // or 'PUT'
+//   headers: {
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify(data),
+//     mode: "cors",
+// withCredentials: 'include'
+
+// })
+// .then(response => response.json())
+// .then(data => {
+//   console.log('Success:', data);
+// })
+// .catch(error => {
+//   console.log('Error:', error);
+// });
+// }
 
 
-
-
+}
