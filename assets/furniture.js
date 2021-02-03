@@ -49,46 +49,40 @@ function addProductPage(){
     function setItems(productInStore){
         var cartItems = localStorage.getItem('itemsInCart');
         cartItems = JSON.parse(cartItems);
-        var y = {
+        var setItem = {
             name: productInStore.name,
             price: productInStore.price,
             image: productInStore.image,
             inCart: productInStore.inCart +=1
         }
         if(cartItems == null || cartItems == undefined){
-            var x = JSON.parse(localStorage.getItem("itemsInCart")) || [];
-            x.push(y);
-            localStorage.setItem('itemsInCart', JSON.stringify(x));
-            localStorage.setItem('testing', JSON.stringify(x));
-
+            var storedItem = JSON.parse(localStorage.getItem("itemsInCart")) || [];
+            storedItem.push(setItem);
+            localStorage.setItem('itemsInCart', JSON.stringify(storedItem));
         }
         else{
-            var x = JSON.parse(localStorage.getItem("itemsInCart")) || [];
-            var y = {
+            var storedItem = JSON.parse(localStorage.getItem("itemsInCart")) || [];
+            var setItem = {
                 name: productInStore.name,
                 price: productInStore.price,
                 image: productInStore.image,
                 inCart: productInStore.inCart
             }
-            console.log(Object.values(y) + "line 73")
-            // console.log("this is at " + x);
-            var itemLocation = x.map(item => item.name).indexOf(y.name);
+            var itemLocation = storedItem.map(item => item.name).indexOf(setItem.name);
             {if (itemLocation != -1) {
-                    x.forEach((item) => {
-                        if (item.name === y.name) {
+                storedItem.forEach((item) => {
+                        if (item.name === setItem.name) {
                            item.inCart +=1;
-                            x.splice(itemLocation, 1, item);
+                            storedItem.splice(itemLocation, 1, item);
                             console.log("this is item2+++++" + item.inCart);
                         }
                         console.log(itemLocation + " it is here");
-                        localStorage.setItem('itemsInCart', JSON.stringify(x));
-                        localStorage.setItem('testing', JSON.stringify(x));
+                        localStorage.setItem('itemsInCart', JSON.stringify(storedItem));
                     });
                 } else {
                     console.log("its new");
-                    x.push(y);
-                    localStorage.setItem('itemsInCart', JSON.stringify(x))
-                    localStorage.setItem('testing', JSON.stringify(x));
+                    storedItem.push(setItem);
+                    localStorage.setItem('itemsInCart', JSON.stringify(storedItem))
                 }}
             }}
 
@@ -125,7 +119,7 @@ if(cartItems && itemContainer){
         <small class="text-muted">Quantity: ${cartItems[i].inCart} </small><br>
         <button id="removecart">Remove</button>
         <button id="addToCart" type="button" class="btn btn-warning">Add to cart</button>
-        <small class="text-muted">Total Amount: ${cartItems[i].inCart * cartItems[i].price} </small>
+        <small class="text-muted">Total Amount: $${cartItems[i].inCart * cartItems[i].price} </small>
     </div>
         </div>`
        }
@@ -144,11 +138,9 @@ if(cartItems && itemContainer){
                         if (item.name === itemId) {
                             item.inCart -=1;
                             cartItems.splice(itemLocation, 1, item);
-                            console.log("this is item3+++++" + item.inCart);
                         }
                         console.log(itemLocation + " it is here");
                         localStorage.setItem('itemsInCart', JSON.stringify(cartItems));
-                        localStorage.setItem('testing', JSON.stringify(cartItems));
                         window.location.reload();
                     });
                 }}
@@ -160,7 +152,6 @@ if(cartItems && itemContainer){
                    cartItems.splice(itemLocation, 1);
                    event.target.parentElement.parentElement.remove();
                    localStorage.setItem('itemsInCart', JSON.stringify(cartItems));
-                   localStorage.setItem('testing', JSON.stringify(cartItems));
                }})
 
                     })
@@ -185,7 +176,6 @@ if(cartItems && itemContainer){
                     }
                     console.log(itemLocation + " it is here");
                     localStorage.setItem('itemsInCart', JSON.stringify(cartItems));
-                    localStorage.setItem('testing', JSON.stringify(cartItems));
                     window.location.reload();
                 });
             }}
@@ -197,7 +187,6 @@ if(cartItems && itemContainer){
                     cartItems.splice(itemLocation, 1);
                     event.target.parentElement.parentElement.remove();
                     localStorage.setItem('itemsInCart', JSON.stringify(cartItems));
-                    localStorage.setItem('testing', JSON.stringify(cartItems));
                 }})
 
         })
@@ -216,19 +205,19 @@ if(cartItems && itemContainer){
     });
     var totalPricePage = document.querySelector('.totalPrice');
     totalPricePage.innerHTML += `$${sum}`;
+}
 
 
-
-
-   //to clear page and local storage
-   //to confirm whether to clear
+//to clear page and local storage
+//to confirm whether to clear
 function ClearStorage(){
     var itemContainer = document.getElementById("items-container");
     var totalPricePage = document.querySelector('.totalPrice');
     var confirmClear = document.getElementById("confirmclear");
-    if (totalPricePage.innerHTML != ""){
-    confirmClear.innerHTML =
-    `<div class="my-modal-content">
+    if (totalPricePage.innerHTML !== ""){
+        console.log("the clearing box")
+        confirmClear.innerHTML =
+            `<div class="my-modal-content">
         <h5>Clearing the cart will remove <strong>ALL</strong> items. Proceed?</h5>
   <div class = "buttons-align">
   <label for = "confirm"><button id="confirmed">Yes</button></label>
@@ -236,43 +225,40 @@ function ClearStorage(){
       </div>
     
     </div>`
-    var confirmedClear = document.getElementById('confirmed');
-    var notConfirmed = document.getElementById('not-confirmed');
+        var confirmedClear = document.getElementById('confirmed');
+        var notConfirmed = document.getElementById('not-confirmed');
 
-confirmedClear.addEventListener('click', ()=> {
-    var itemContainer = document.getElementById("items-container");
-    var totalPricePage = document.querySelector('.totalPrice');
-    var confirmClear = document.getElementById("confirmclear");
-    confirmClear.innerHTML = "";
-    totalPricePage.innerHTML = "";
-    itemContainer.innerHTML = "";
-    localStorage.removeItem("itemsInCart");
-    localStorage.removeItem("cartNumbers");
-    localStorage.removeItem("totalCost");
-})
+        confirmedClear.addEventListener('click', ()=> {
+            var itemContainer = document.getElementById("items-container");
+            var totalPricePage = document.querySelector('.totalPrice');
+            var confirmClear = document.getElementById("confirmclear");
+            confirmClear.innerHTML = "";
+            totalPricePage.innerHTML = "";
+            itemContainer.innerHTML = "";
+            localStorage.removeItem("itemsInCart");
+            localStorage.removeItem("cartNumbers");
+            localStorage.removeItem("totalCost");
+        })
 
-notConfirmed.addEventListener('click', ()=> {
-    var confirmClear = document.getElementById("confirmclear");
-    confirmClear.innerHTML = "";
-})
-}
+        notConfirmed.addEventListener('click', ()=> {
+            var confirmClear = document.getElementById("confirmclear");
+            confirmClear.innerHTML = "";
+        })
+    }
 
     else {
         confirmClear.innerHTML =
-        `<div class="my-modal-content">
+            `<div class="my-modal-content">
         <h5>Cart is empty.</h5>
         <label for = "not-confirmed"><button id="not-confirmed">Close</button></label>
       </div>
     
     </div>`
-    var notConfirmed = document.getElementById('not-confirmed');
+        var notConfirmed = document.getElementById('not-confirmed');
 
-    notConfirmed.addEventListener('click', ()=> {
-        confirmClear.innerHTML = "";
-    })
+        notConfirmed.addEventListener('click', ()=> {
+            confirmClear.innerHTML = "";
+        })
 
-    }
-}
-}
-
+    }}
 
