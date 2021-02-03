@@ -94,9 +94,7 @@ function addProductPage(){
 
 
     })
-    
-    //setitem end
-    
+
 }
 
 addProductPage();
@@ -110,8 +108,6 @@ function displayItems(){
     let totalPrice = localStorage.getItem('totalCost');
     totalPrice = JSON.parse(totalPrice);
     var itemContainer = document.getElementById("items-container");
-    // var itemDisplay = document.querySelector('.item-image');
-    // var itemName = document.querySelector('.item-name');
 if(cartItems && itemContainer){
        for (let i = 0; i < cartItems.length; i++) {
         itemContainer.innerHTML +=
@@ -128,6 +124,7 @@ if(cartItems && itemContainer){
         <div class="card-footer">
         <small class="text-muted">Quantity: ${cartItems[i].inCart} </small><br>
         <button id="removecart">Remove</button>
+        <button id="addToCart" type="button" class="btn btn-warning">Add to cart</button>
         <small class="text-muted">Total Amount: ${cartItems[i].inCart * cartItems[i].price} </small>
     </div>
         </div>`
@@ -166,12 +163,49 @@ if(cartItems && itemContainer){
                    localStorage.setItem('testing', JSON.stringify(cartItems));
                }})
 
-                    console.log("worked");
-                    console.log("hello");
-
                     })
 
         })
+
+    var carts = document.querySelectorAll('#addToCart');
+    carts.forEach(item => {
+        item.addEventListener('click', (event) => {
+            let itemId = event.target.parentElement.parentElement.id;
+            var cartItems = localStorage.getItem('itemsInCart');
+            cartItems = JSON.parse(cartItems);
+            console.log(cartItems);
+            cartItems = Object.values(cartItems);
+            var itemLocation = cartItems.map(item => item.name).indexOf(itemId);
+            {if (itemLocation != -1) {
+                cartItems.forEach((item) => {
+                    if (item.name === itemId) {
+                        item.inCart +=1;
+                        cartItems.splice(itemLocation, 1, item);
+                        console.log("this is item3+++++" + item.inCart);
+                    }
+                    console.log(itemLocation + " it is here");
+                    localStorage.setItem('itemsInCart', JSON.stringify(cartItems));
+                    localStorage.setItem('testing', JSON.stringify(cartItems));
+                    window.location.reload();
+                });
+            }}
+            var cartItems = localStorage.getItem('itemsInCart');
+            cartItems = JSON.parse(cartItems);
+            cartItems.forEach((item) => {
+                if (item.inCart === 0) {
+                    var itemLocation = cartItems.map(item => item).indexOf(item);
+                    cartItems.splice(itemLocation, 1);
+                    event.target.parentElement.parentElement.remove();
+                    localStorage.setItem('itemsInCart', JSON.stringify(cartItems));
+                    localStorage.setItem('testing', JSON.stringify(cartItems));
+                }})
+
+        })
+
+    })
+
+
+    }
 
     cartItems = localStorage.getItem('itemsInCart');
     cartItems = JSON.parse(cartItems);
@@ -238,9 +272,7 @@ notConfirmed.addEventListener('click', ()=> {
     })
 
     }
-
-
-
-
 }
-}}
+}
+
+
