@@ -1,0 +1,156 @@
+<!doctype html> 
+<!-- Group: Serene, Syafii, Andrew -->
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="../images/logo/Ellipse.svg">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" >
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/style.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" / >
+</head>
+
+	<h2>Checkout Form</h2>
+<body>
+
+    <!-- NAVBAR -->
+
+    <div class="container">
+        <nav class="navbar navbar-expand navbar-light bg-white fixed-top border-bottom border-dark">
+
+            <a href="../../../../../index.html" class="navbar-brand"><img class="logo" src="../images/logo/EllipseGroup2.svg"
+                                                                          style="width:auto;height:30px;"></a>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">ABOUT</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="furniture.html" class="nav-link">FURNITURE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="objects.html" class="nav-link">OBJECTS</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link active">CONTACT</a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item">
+                        <a href="search.html" class="nav-link"><img src="../images/search.svg"
+                                                                    style="width:auto;height:17px;"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="login.html" class="nav-link">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cart.html" class="nav-link"><img src="../images/cart.svg"
+                                                                  style="width:auto;height:17px;">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- Experimental Form Validation 
+    <form action="/action_page.php" method="post">
+        <input type="text" name="fname" required>
+        <input type="submit" value="Submit">
+    </form -->
+        
+<form>
+    <!-- Look at the Contact Form - and see how the input are organised -->
+	<!-- div class="row" -->
+        <h3>Billing Address</h3>
+            <hr>
+            <label for="fname">Full Name </label><br>
+            <input type="text" id="fname" name="firstname" placeholder="John M. Doe" size="100"><br>
+            <label for="email">Email     </label><br>
+            <input type="email" id="email" name="email" placeholder="john@example.com" size="100"><br>
+            <label for="adr">Address     </label><br>
+            <textarea name="address" cols="100" rows="2" placeholder="542 W 15th Street"></textarea><br>
+            <label for="postal code">Postal Code</label><br>
+            <input type="text" id="city" name="city" placeholder="012345" size="6"><br>
+            <label for="city">City       </label><br>
+            <input type="text" id="city" name="city" placeholder="New York" size="100"><br>
+            <label for="country">Country </label><br>
+            <input type="text" id="city" name="city" placeholder="United States of America" size="100"><br>
+    </div>
+    <hr>
+    <div class="row">
+        <h3>Items Brought</h3>
+        <table>
+        
+        </table>
+    </div>
+    <hr>
+        <h3>Payment</h3>
+        <!-- Need input validation for one checkbox per type of card, 
+             and one checkbox for card type. Values allowed are;
+             "required" and "max=1" -->
+            <input type="checkbox">Credit Card
+            <input type="checkbox">Debit Card
+            <br>
+            <input type="checkbox">VISA
+            <input type="checkbox">Master Card
+            <input type="checkbox">AMEX
+            <input type="checkbox">JCB
+            <input type="checkbox">Others
+        <br><br>
+        <label for="name on card">Name on Card</label><br>
+        <input type="text" name="text" placeholder="John M Doe" size="100"><br><br>
+        <label for="card number">Card Number</label><br>
+        <input type="text" name="number" placeholder="XXXX-XXXX-XXXX-XXXX" size="19"><br><br>
+        <form>
+            Please choose your expiry month:
+            <select name="ExpiryMonth" size="1">
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
+        </form>
+        <form><br>
+            Please select your expiry year:
+            <select name="ExpiryYear" size="1">
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+            </select>
+        </form><br><br>
+        <input type="submit" value="Submit">
+        <img width="106" width="47"></input>
+        <input type="reset" value="Reset">
+        <img width="106" width="47"></input>
+    </div>
+</form>
+</body>
