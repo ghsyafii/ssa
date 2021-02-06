@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="../images/logo/Ellipse.svg">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <title>SSA • SignUp</title>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="container">
+    <nav class="navbar navbar-expand navbar-light bg-white fixed-top border-bottom border-dark">
+
+        <a href="../../../../../index.html" class="navbar-brand"><img class="logo" src="../images/logo/EllipseGroup2.svg"
+                                                                      style="width:auto;height:30px;"></a>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">ABOUT</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="furniture.html" class="nav-link">FURNITURE</a>
+                </li>
+                <li class="nav-item">
+                    <a href="objects.html" class="nav-link">OBJECTS</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">CONTACT</a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+                    <a href="search.html" class="nav-link"><img src="../images/search.svg"
+                                                                style="width:auto;height:17px;"></a>
+                </li>
+                <li class="nav-item nav-link" id="loginclick">Login
+                </li>
+                <li class="nav-item">
+                    <a href="cart.html" class="nav-link"><img src="../images/cart.svg"
+                                                              style="width:auto;height:17px;">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<!-- ABOUT -->
+
+
+<h1>Signup</h1>
+<p>Kindly fill in your details to complete the registration:</p>
+
+<div class="container-fluid mb-3">
+    <div class="row-12">
+        <div class="row">
+            <form id="signupform" class="needs-validation">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputFname">First name</label>
+                        <input type="text" class="form-control" id="inputFname" autocomplete="off">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputLname">Last name</label>
+                        <input type="text" class="form-control" id="inputLname" autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="inputEmail4">Email</label>
+                        <input type="email" class="form-control" id="inputEmail4" autocomplete="off">
+                    </div>
+                    <div class="form-group col-md-12" id="testPass">
+                        <label for="inputPassword4">Password</label>
+                        <input type="password" class="form-control" id="inputPassword4" placeholder="Password"
+                               autocomplete="off" onmouseover="passRequire();">
+                        <div class="passReq"><p>Password Requirement:</p>
+                            <li>Min. of 8 character</li>
+                            <li>1 special letter.</li>
+                            <li>1 upperCase & 1 lowerCase alphabet</li>
+                            <li>1 number</li>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="confirmpassword">Retype Password</label>
+                        <input type="password" class="form-control" id="confirmpassword" placeholder="Password"
+                               autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress">Address</label>
+                    <input type="text" class="form-control" id="inputAddress" autocomplete="off">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputState">Country Code:</label>
+                        <select id="inputState" class="form-control">
+                            <option selected>—</option>
+                            <option>+65</option>
+                            <option>+60</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPhone">Phone Number:</label>
+                        <input type="text" class="form-control" id="inputPhone" autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputCity">Postal Code</label>
+                        <input type="text" class="form-control" id="inputCity" autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                            I agree to the <a href>terms and conditions</a>.
+                        </label>
+                    </div>
+                </div>
+                <button class="btn btn-warning" id="info-enter">Sign up now!</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal content -->
+<div id="myModal" class="my-modal">
+    <div class="my-modal-content">
+        <span class="closetag">x</span>
+        <label for="username"><b>Email</b><br>
+            <input type="text" class="login-username" name="username" id="uname">
+        </label><br>
+        <label for="password"><b>Password</b><br>
+            <input type="password" class="login-password" id="upass" name="password">
+        </label><br>
+        <div class="buttons-align">
+            <label for="submit">
+                <button class="btn btn-warning" onclick="validUser()">Login</button>
+            </label>
+            <label for="resetlogin">
+                <button class="btn btn-warning" onclick="resetLogin()">Clear</button>
+            </label>
+            <br>
+            <p><a style="text-decoration: underline" href="/login.html">New? Register now!</a></p>
+        </div>
+    </div>
+    <!--modal end-->
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
+    <script src="../assets/script.js"></script>
+    <script src="../src/main/resources/static/assets/login-valid.js"></script>
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

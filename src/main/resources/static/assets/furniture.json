@@ -1,0 +1,86 @@
+[
+  {
+    "ID": "001",
+    "name": "Black Chair",
+    "price": 180,
+    "image": "../images/furniture/blackchair.jpg",
+    "inCart": 0
+  },
+  {
+    "ID": "002",
+    "name": "A Mirror",
+    "price": 140,
+    "image": "../images/furniture/mirror.jpg",
+    "inCart": 0
+  },
+  {
+    "ID": "003",
+    "name": "A Ceramic Lamp",
+    "price": 200,
+    "image": "../images/furniture/ceramiclamp.jpg",
+    "inCart": 0
+  },
+  {
+    "ID": "004",
+    "name": "A Candle Holder",
+    "price": 100,
+    "image": "../images/furniture/candleholder.jpg",
+    "inCart": 0
+  },
+  {
+    "ID": "005",
+    "name": "Blue Chair",
+    "price": 120,
+    "image": "../images/furniture/bluechair.jpg",
+    "inCart": 0
+  },
+  {
+    "ID": "006",
+    "name": "Orange Chair",
+    "price": 140,
+    "image": "../images/furniture/orangechair.jpg",
+    "inCart": 0
+  },
+  {
+    "ID": "007",
+    "name": "A Steel Lamp",
+    "price": 340,
+    "image": "../images/furniture/steellamp.jpg",
+    "inCart": 0
+  },
+  {
+    "ID": "008",
+    "name": "Another Candle Holder",
+    "price": 220,
+    "image": "../images/furniture/anothercandleholder.jpg",
+    "inCart": 0
+  },
+  {
+    "ID": "009",
+    "name": "Table Linen",
+    "price": 160,
+    "image": "../images/furniture/tablelinen.jpg",
+    "inCart": 0
+  },
+  {
+    "ID": "010",
+    "name": "Pouf",
+    "price": 380,
+    "image": "../images/furniture/pouf.jpg",
+    "inCart": 0
+  },
+  {
+    "ID": "011",
+    "name": "Pouf",
+    "price": 380,
+    "image": "../images/furniture/pouf.jpg",
+    "inCart": 0
+  },
+  {
+    "ID": "012",
+    "name": "Pouf",
+    "price": 380,
+    "image": "../images/furniture/pouf.jpg",
+    "inCart": 0
+  }
+]
