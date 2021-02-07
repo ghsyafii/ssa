@@ -85,8 +85,13 @@ function addProductPage() {
                     localStorage.setItem("totalCost", productInStore.price);
                 }
             }
+
             //price ends
+
+
         })
+
+
 }
 
 addProductPage();
